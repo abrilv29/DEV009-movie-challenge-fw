@@ -8,7 +8,7 @@ import { MovieServiceService } from 'src/app/service/service.service';
 })
 export class MovieListComponent implements OnInit {
   movies: any[] = []; //
-  pageSize: number = 5;
+  pageSize: number = 1;
   currentPage: number = 1;
 
     // Define la propiedad 'pages' en el componente
@@ -17,9 +17,12 @@ export class MovieListComponent implements OnInit {
   constructor(private moviesService: MovieServiceService){}
 
   ngOnInit(): void{
-    
+    this.getDiscoveryMovie();
+  }
+  
+  private getDiscoveryMovie() {
     // Llamamos al servicio para obtener los datos de las peliculas mediante discovery
-    this.moviesService.getDiscoveryMovie().subscribe((data: any) => {
+    this.moviesService.getDiscoveryMovie(this.currentPage).subscribe((data: any) => {
       // Almacenamos los datos en la propiedad movies
       console.log(data);
       this.movies = data.results;
@@ -29,19 +32,21 @@ export class MovieListComponent implements OnInit {
   // Paginacion 
 
   getMoviePagination():any[]{
-    const indexStart = (this.currentPage - 1) * this.pageSize;
-    const indexEnd = indexStart + this.pageSize;
-    return this.movies.slice(indexStart, indexEnd);
+    return this.movies/* .slice(indexStart, indexEnd) */;
   }
 
   nextPage(){
-    if(this.currentPage < this.totalPages){
-      this.currentPage++;
-    }
+    this.setPage(this.currentPage + 1 );
   }
+
   prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
+    this.setPage(this.currentPage -1 );
+  }
+  
+  private setPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.getDiscoveryMovie();
     }
   }
 

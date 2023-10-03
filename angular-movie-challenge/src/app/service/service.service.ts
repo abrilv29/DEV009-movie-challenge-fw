@@ -10,12 +10,18 @@ export class MovieServiceService {
   constructor(private http:HttpClient) { }
 
       private apiUrl = 'https://api.themoviedb.org/3';
+      private apiKey = '16dfeb0f3e4049b632b795ff3d997f25';
 
-  private apiKey = '16dfeb0f3e4049b632b795ff3d997f25';
 
-  getDiscoveryMovie(): Observable<any> {
+  //slider trending
+
+  getsliderTrending(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/trending/movie/day?api_key=${this.apiKey}&language=es`);
+  }
+
+  getDiscoveryMovie(page: number): Observable<any> {
     //url de la api a consumir en este caso discoverid
-    const url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`;
     // Realizamos la solicitud GET y devolver los datos como un Observable
 
     return this.http.get(url);
