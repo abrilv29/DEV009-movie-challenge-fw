@@ -44,7 +44,7 @@ export class MovieServiceService {
 
   }
 
-  //action movies 
+  //Geners movies 
 
   getGenerCategory(genreId?: number, page:number = 1): Observable<any> {
     //return this.http.get(`${this.apiKey}?api_key=${this.apiKey}&with_genres=28`);
