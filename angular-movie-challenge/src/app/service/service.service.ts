@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { Movie, MovieResult } from '../Interface/discover';
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +13,18 @@ export class MovieServiceService {
       private apiUrl = 'https://api.themoviedb.org/3';
       private apiKey = '16dfeb0f3e4049b632b795ff3d997f25';
 
+ //tipado usando interface remplazando any
 
-  //slider trending
-
-  getsliderTrending(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/trending/movie/day?api_key=${this.apiKey}&language=es`);
+  getDiscoveryMovie(): Observable<Movie[]> {
+    //url de la api a consumir en este caso discoveri
+    return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}`).pipe(
+      map((result: MovieResult) => result.results)
+    );
+      
   }
 
-  getDiscoveryMovie(page: number): Observable<any> {
-    //url de la api a consumir en este caso discoverid
-    const url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`;
-    // Realizamos la solicitud GET y devolver los datos como un Observable
 
-    return this.http.get(url);
-  }
+
 
   //genersMovies
 
@@ -53,4 +52,12 @@ export class MovieServiceService {
 
  // private apiUrl = 'https://api.themoviedb.org/3/genre/movie/list';
 
+ //search movie
+
+getSearcMovie(data:any): Observable<any> {
+
+  return this.http.get(`${this.apiUrl}/searchmovie?api_key=${this.apiKey}&query=${data.movieName}`);
 }
+
+}
+

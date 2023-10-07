@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(private moviesService: MovieServiceService){}
 
-  ngOnInit(): void{
+  /*ngOnInit(): void{
 
     this.moviesService.getsliderTrending().subscribe((data:any) =>{
       console.log(data);
@@ -20,6 +20,6 @@ export class AppComponent {
         return`https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
       });
     });
-  }
+  }*/
 
 }
