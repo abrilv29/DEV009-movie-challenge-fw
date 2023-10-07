@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { MovieServiceService } from 'src/app/service/service.service';
 
+import { Movie } from 'src/app/Interface/discover';
+
+
 @Component({
   selector: 'app-movie-filter',
   templateUrl: './movie-filter.component.html',
@@ -8,97 +11,48 @@ import { MovieServiceService } from 'src/app/service/service.service';
 })
 export class MovieFilterComponent implements OnInit {
 
-  genres:any[] = [];
-  resultGenres:any[] = [];
-  movies:any[] = [];
-  selectGeners:number | undefined;
-  currentGenerPage:number = 1;
-  totalGenerPage:number = 1;
-  pageSize: number = 1;
-  totalPages: number = 1;
-
-
-  // Define la propiedad 'pages' en el componente
-    pages: number[] = [];
-
+  genres: number[] = [];
+  resultGenres: Movie[] = [];
+  movies:Movie[] = [];
+  selectGeners: number | undefined;
 
   constructor(private movieService: MovieServiceService) {}
 
   ngOnInit(): void {
-    this.movieService.getGenersMovies().subscribe((data: any) => {
+    // Obtener la lista de géneros
+    this.movieService.getGenersMovies().subscribe((data: Movie[]) => {
       console.log(data);
-      this.genres = data.genres;
+      this.genres = data.map((movie: Movie) => movie.genre_ids).flat();
     });
   }
+}
 
-  // Mueve la función showMovieGenres aquí fuera de ngOnInit
-  showMovieGenres(genreId: number) {
-    this.movieService.getGenersMovies(genreId).subscribe((data: any) => {
-      this.resultGenres = data.results;
-    });
-  }
-
-  //pagination 
-
-
-  //action
-
-  onGenreSelect(): void {
-    if (this.selectGeners){
-      this.currentGenerPage = 1;
-      this.movieService.getGenerCategory(this.selectGeners, this.currentGenerPage).subscribe((data: any) => {
+/*  // Mueve la función showMovieGenres aquí fuera de ngOnInit
+  showMovieGenres(genre_ids: number) {
+    if (genre_ids) {
+      this.movieService.getGenersMovies(genre_ids).subscribe((data: Movie) => {
         console.log(data);
-        console.log(`Total Pages: ${data.total_pages}`);
-        console.log(this.currentGenerPage);
+        this.resultGenres = data.genre_ids;
+      });
+    }
+  }
+  */
+
+
+/*onGenreSelect(): void {
+    if (this.selectGeners){
+        this.movieService.getGenerCategory(this.selectGeners).subscribe((data: any) => {
+        console.log(data);
         this.movies = data.results.map((movie: any) => {
           movie.poster_url = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
           return movie;
         });
-        this.totalGenerPage = data.total_pages;
-        console.log(this.totalGenerPage)
       });
     }
 
-  }
+  }*/
 
-    // Paginacion 
+  
 
-    getGenerPagination():any[]{
-      return this.movies/* .slice(indexStart, indexEnd) */;
-    }
-  
-    nextGenerPage() {
-      console.log('Next page clicked');
-      console.log(`Current Page: ${this.currentGenerPage}`);
-      console.log(`Total Pages: ${this.totalGenerPage}`);
-      if (this.currentGenerPage < this.totalGenerPage) {
-        this.setGenerPage(this.currentGenerPage + 1);
-      }
-    }
-    
-    prevGenerPage() {
-      console.log('Prev page clicked');
-      console.log(`Current Page: ${this.currentGenerPage}`);
-      console.log(`Total Pages: ${this.totalGenerPage}`);
-      if (this.currentGenerPage > 1) {
-        this.setGenerPage(this.currentGenerPage - 1);
-      }
-    }
-    
-    
-    private setGenerPage(page: number) {
-      if (page >= 1 && page <= this.totalGenerPage) {
-        this.currentGenerPage = page;
-        this.onGenreSelect();
-      }
-    }
-  
-    get totalGenerMoviePages(): number {
-      if (this.movies.length === 0 || this.pageSize === 0) {
-       return 0;
-     }
-     return Math.ceil(this.movies.length / this.pageSize);
-   }
   
   
-}

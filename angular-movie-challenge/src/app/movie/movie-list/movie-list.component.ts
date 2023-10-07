@@ -1,4 +1,4 @@
-import { Component, OnInit, numberAttribute } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieResult, Movie} from 'src/app/Interface/discover';
 
 import { MovieServiceService } from 'src/app/service/service.service';
@@ -14,6 +14,10 @@ export class MovieListComponent implements OnInit {
   public movies: Movie[] = []; //
   public currentPage: number = 1;
   public totalPages: number = 0;
+  pageSize: number = 1;
+
+      // Define la propiedad 'pages' en el componente
+      pages: number[] = [];
   
   constructor(private moviesService: MovieServiceService) { }
 
@@ -36,19 +40,32 @@ export class MovieListComponent implements OnInit {
 
   // PAGINACION
 
+  getMoviePagination(){
+    return this.movies/* .slice(indexStart, indexEnd) */;
+  }
+
   nextPage(){
-    if(this.currentPage < this.totalPages){
-      this.currentPage ++;
+    this.setPage(this.currentPage + 1 );
+  }
+
+  prevPage() {
+    this.setPage(this.currentPage -1 );
+  }
+  
+  private setPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
       this.getDiscoveryMovie(this.currentPage);
     }
   }
 
-  prevPage(){
-    if(this.currentPage > 1){
-      this.currentPage --;
-      this.getDiscoveryMovie(this.currentPage);
-    }
+  get totalMoviePages(): number {
+   if (this.movies.length === 0 || this.pageSize === 0) {
+    return 0;
   }
+  return Math.ceil(this.movies.length / this.pageSize);
+}
+
 
   
 }

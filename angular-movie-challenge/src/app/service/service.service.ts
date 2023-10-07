@@ -21,41 +21,28 @@ export class MovieServiceService {
       
   }
 
+  // GENERS MOVIES
 
+  getGenersMovies(genreId?: number): Observable<Movie[]> {
+   let url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}`;
+   if(genreId){
+       url += `&with_genres=${genreId}`;
+   }
 
-
-  //genersMovies
-
-  getGenersMovies(genreId?: number): Observable<any> {
-    let params: any = {
-      api_key: this.apiKey, // Cambiar apiKey a api_key
-    };
-  
-    // Agregar el filtro por genreId si se proporciona
-    if (genreId !== undefined) {
-      params.with_genres = genreId.toString();
-    }
-  
-    return this.http.get(`${this.apiUrl}/genre/movie/list`, { params });
+   return this.http.get<MovieResult>(url).pipe(
+       map((res: MovieResult) => res.results)
+   );
 
 
   }
 
-  //Geners movies 
+  // CATEGORY MOVIES FROM GENERS
 
-  getGenerCategory(genreId?: number, page:number = 1): Observable<any> {
+  /*getGenerCategory(genreId: number, page:number = 1): Observable<MovieResult> {
     //return this.http.get(`${this.apiKey}?api_key=${this.apiKey}&with_genres=28`);
     return this.http.get(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&language=es&page=${page}`);
-  }
+  }*/
 
- // private apiUrl = 'https://api.themoviedb.org/3/genre/movie/list';
-
- //search movie
-
-getSearcMovie(data:any): Observable<any> {
-
-  return this.http.get(`${this.apiUrl}/searchmovie?api_key=${this.apiKey}&query=${data.movieName}`);
-}
 
 }
 
