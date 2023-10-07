@@ -15,11 +15,9 @@ export class MovieServiceService {
 
  //tipado usando interface remplazando any
 
-  getDiscoveryMovie(): Observable<Movie[]> {
+  getDiscoveryMovie(page:Number): Observable<MovieResult> {
     //url de la api a consumir en este caso discoveri
-    return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}`).pipe(
-      map((result: MovieResult) => result.results)
-    );
+     return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`);
       
   }
 
