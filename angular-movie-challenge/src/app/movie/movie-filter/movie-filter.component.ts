@@ -1,7 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { MovieServiceService } from 'src/app/service/service.service';
 
-import { Movie } from 'src/app/Interface/discover';
+import { Movie, MovieResult } from 'src/app/Interface/discover';
+import { Genre, GenreResult } from 'src/app/Interface/genres';
 
 
 @Component({
@@ -11,46 +12,76 @@ import { Movie } from 'src/app/Interface/discover';
 })
 export class MovieFilterComponent implements OnInit {
 
-  genres: number[] = [];
-  resultGenres: Movie[] = [];
-  movies:Movie[] = [];
-  selectGeners: number | undefined;
+  genres: Genre[] = [];
+  selectGenreId: number | undefined;
+  movies: Movie[] = [];
+  public currentPageGenre: number = 1;
+  public totalPagesGenre: number = 0;
+  pageSizeGenre: number = 1;
+
+        // Define la propiedad 'pages' en el componente
+        pages: number[] = [];
 
   constructor(private movieService: MovieServiceService) {}
 
   ngOnInit(): void {
-    // Obtener la lista de géneros
-    this.movieService.getGenersMovies().subscribe((data: Movie[]) => {
+    // Obtener la lista de géneros de películas
+    this.movieService.getGenersMovies().subscribe((data: GenreResult) => {
+      // Accede a la propiedad genres dentro de GenreResult
       console.log(data);
-      this.genres = data.map((movie: Movie) => movie.genre_ids).flat();
+      this.genres = data.genres;
+  
     });
   }
-}
 
-/*  // Mueve la función showMovieGenres aquí fuera de ngOnInit
-  showMovieGenres(genre_ids: number) {
-    if (genre_ids) {
-      this.movieService.getGenersMovies(genre_ids).subscribe((data: Movie) => {
+  onGenreSelect(): void {
+    if (this.selectGenreId) {
+      // Obtener las películas del género seleccionado
+      this.movieService.getGenerCategory(this.selectGenreId, this.currentPageGenre).subscribe((data: MovieResult) => {
         console.log(data);
-        this.resultGenres = data.genre_ids;
+        this.movies = data.results;
+        this.currentPageGenre = data.page;
+        this.totalPagesGenre = data.total_results;
+
       });
     }
   }
-  */
 
+  // PAGINACION
 
-/*onGenreSelect(): void {
-    if (this.selectGeners){
-        this.movieService.getGenerCategory(this.selectGeners).subscribe((data: any) => {
-        console.log(data);
-        this.movies = data.results.map((movie: any) => {
-          movie.poster_url = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-          return movie;
-        });
-      });
+  getMoviePagination(){
+    return this.movies/* .slice(indexStart, indexEnd) */;
+  }
+
+  nextPageGenre(){
+    this.setPage(this.currentPageGenre + 1 );
+  }
+
+  prevPageGenre() {
+    this.setPage(this.currentPageGenre -1 );
+  }
+  
+  private setPage(page: number) {
+    if (page >= 1 && page <= this.totalPagesGenre) {
+      this.currentPageGenre = page;
+      this.onGenreSelect();
     }
+  }
 
-  }*/
+  get totalGenrePages(): number {
+   if (this.movies.length === 0 || this.pageSizeGenre === 0) {
+    return 0;
+  }
+  return Math.ceil(this.movies.length / this.pageSizeGenre);
+}
+
+}
+
+
+
+
+
+
 
   
 

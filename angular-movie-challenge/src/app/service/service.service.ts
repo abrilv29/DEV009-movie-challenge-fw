@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, pipe } from 'rxjs';
 import { Movie, MovieResult } from '../Interface/discover';
+import { Genre, GenreResult } from '../Interface/genres';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class MovieServiceService {
 
  //tipado usando interface remplazando any
 
-  getDiscoveryMovie(page:Number): Observable<MovieResult> {
+  getDiscoveryMovie(page:number): Observable<MovieResult> {
     //url de la api a consumir en este caso discoveri
      return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`);
       
@@ -23,26 +24,14 @@ export class MovieServiceService {
 
   // GENERS MOVIES
 
-  getGenersMovies(genreId?: number): Observable<Movie[]> {
-   let url = `${this.apiUrl}/discover/movie?api_key=${this.apiKey}`;
-   if(genreId){
-       url += `&with_genres=${genreId}`;
-   }
-
-   return this.http.get<MovieResult>(url).pipe(
-       map((res: MovieResult) => res.results)
-   );
-
-
+  getGenersMovies(): Observable<GenreResult> {
+   return this.http.get<GenreResult>(`${this.apiUrl}/genre/movie/list?api_key=${this.apiKey}`);
   }
 
   // CATEGORY MOVIES FROM GENERS
 
-  /*getGenerCategory(genreId: number, page:number = 1): Observable<MovieResult> {
-    //return this.http.get(`${this.apiKey}?api_key=${this.apiKey}&with_genres=28`);
-    return this.http.get(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&language=es&page=${page}`);
-  }*/
-
-
+  getGenerCategory(genreId?: number, page?:number): Observable<MovieResult> {
+      //return this.http.get(`${this.apiKey}?api_key=${this.apiKey}&with_genres=28`);
+      return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${page}`);
+    }
 }
-

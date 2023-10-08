@@ -1,36 +1,78 @@
 <p>movie-filter works!</p>
 
 <h1>Movie Filter</h1>
-<!-- movie-filter.component.html 
+<!-- movie-filter.component.html
 <div class="container">
 
-  <select [(ngModel)]="selectGeners" (change)="onGenreSelect()">
+  <div>
+
+    <label for="genreSelect">Selecciona un género:</label>
+    <select id="genreSelect" [(ngModel)]="selectGeners" (change)="onGenreSelect()">
+      <option value="">Todos los géneros</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+  </div>
+  
+  <div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Poster</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{ movie.title }}</td>
+          <td><img [src]="movie.poster_path" alt="{{ movie.title }}" width="100"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div> -->
+
+<div>
+  <label for="genreSelect">Genres:</label>
+  <select id="genreSelect" [(ngModel)]="selectGenreId" (change)="onGenreSelect()">
     <option value="">Selecciona un género</option>
     <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
   </select>
+</div>
 
-  <table *ngIf="movies.length > 0">
-    <thead>
-      <tr>
-        <th>Póster</th>
-        <th>Título</th>
-        <th>Año</th>
-        <th>Descripción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let movie of movies">
-        <td><img [src]="movie.poster_url" alt="{{ movie.title }}" width="100" height="150"></td>
-        <td>{{ movie.title }}</td>
-        <td>{{ movie.release_date }}</td>
-        <td>{{ movie.overview }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="movies.length > 0">
+  <h2>Películas:</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let movie of movies">
+      <div class="card mb-4">
+        <ng-container *ngIf="movie.poster_path"> <!-- Comprobar si poster_path existe -->
+          <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top" alt="{{ movie.title }}">
+        </ng-container>
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">Año de lanzamiento: {{ movie.release_date | date:'yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center" >
+    <li class="page-item" [class.disabled]="currentPageGenre === 1">
+      <a class="page-link" (click)="prevPageGenre()">Prev</a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="currentPageGenre === page">
 
-</div>-->
-
+      <a class="page-link" (click)="currentPageGenre = page">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPageGenre=== totalPagesGenre">
+      <a class="page-link" (click)="nextPageGenre()">Next</a>
+    </li>
+  </ul>
+</nav>
 
 
 
