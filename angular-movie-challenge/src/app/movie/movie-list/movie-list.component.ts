@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieResult, Movie} from 'src/app/Interface/discover';
+import { MovieResult, Movie } from 'src/app/Interface/discover';
 
 import { MovieServiceService } from 'src/app/service/service.service';
 
@@ -11,14 +11,16 @@ import { MovieServiceService } from 'src/app/service/service.service';
 })
 export class MovieListComponent implements OnInit {
 
-  public movies: Movie[] = []; //
-  public currentPage: number = 1;
-  public totalPages: number = 0;
+  movies: Movie[] = []; //
+  currentPage: number = 1;
+  totalPages: number = 0;
   pageSize: number = 1;
+  pages: number[] = [];
 
-      // Define la propiedad 'pages' en el componente
-      pages: number[] = [];
-  
+  selectSortOption: string = 'popularity.asc';
+
+
+
   constructor(private moviesService: MovieServiceService) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class MovieListComponent implements OnInit {
 
   private getDiscoveryMovie(page: number) {
 
-    this.moviesService.getDiscoveryMovie(page).subscribe((data:MovieResult)=>{
+    this.moviesService.getDiscoveryMovie(page).subscribe((data: MovieResult) => {
       console.log(data);
       this.movies = data.results;
       this.currentPage = data.page;
@@ -40,18 +42,18 @@ export class MovieListComponent implements OnInit {
 
   // PAGINACION
 
-  getMoviePagination(){
+  getMoviePagination() {
     return this.movies/* .slice(indexStart, indexEnd) */;
   }
 
-  nextPage(){
-    this.setPage(this.currentPage + 1 );
+  nextPage() {
+    this.setPage(this.currentPage + 1);
   }
 
   prevPage() {
-    this.setPage(this.currentPage -1 );
+    this.setPage(this.currentPage - 1);
   }
-  
+
   private setPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
@@ -60,14 +62,28 @@ export class MovieListComponent implements OnInit {
   }
 
   get totalMoviePages(): number {
-   if (this.movies.length === 0 || this.pageSize === 0) {
-    return 0;
+    if (this.movies.length === 0 || this.pageSize === 0) {
+      return 0;
+    }
+    return Math.ceil(this.movies.length / this.pageSize);
   }
-  return Math.ceil(this.movies.length / this.pageSize);
-}
+
+  // SORT THE MOVIES
+
+  onSortMovie(){
+    this.loadMovie(this.selectSortOption);
+  }
+
+  loadMovie(sort_movies:string){
+    this.moviesService.getMovieSort(sort_movies).subscribe((data:MovieResult) => {
+      console.log(data);
+      this.movies = data.results;
+    });
+  }
 
 
-  
+
+
 }
 
 

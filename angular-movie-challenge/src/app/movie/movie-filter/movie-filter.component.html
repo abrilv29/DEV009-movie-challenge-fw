@@ -1,43 +1,20 @@
 <p>movie-filter works!</p>
 
-<h1>Movie Filter</h1>
-<!-- movie-filter.component.html
-<div class="container">
+<!-- Selector para orden -->
+<select [(ngModel)]="selectSortGenre" (change)="onSortMovieGenres()">
+  <option value="popularity.asc">Popularidad ascendente</option>
+  <option value="popularity.desc">Popularidad descendente</option>
+  <option value="vote_average.asc">Mejor Valorada</option>
+  <option value="vote_average.desc">Peor Valorada</option>
+  <option value="original_title.asc">Título (A-Z)</option>
+  <option value="original_title.desc">Título (Z-A)</option>
+</select>
 
-  <div>
 
-    <label for="genreSelect">Selecciona un género:</label>
-    <select id="genreSelect" [(ngModel)]="selectGeners" (change)="onGenreSelect()">
-      <option value="">Todos los géneros</option>
-      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-    </select>
-  </div>
-  
-  <div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Título</th>
-          <th>Poster</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let movie of movies">
-          <td>{{ movie.title }}</td>
-          <td><img [src]="movie.poster_path" alt="{{ movie.title }}" width="100"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-</div> -->
-
-<div>
+<div class="content-select">
   <label for="genreSelect">Genres:</label>
   <select id="genreSelect" [(ngModel)]="selectGenreId" (change)="onGenreSelect()">
-    <option value="">Selecciona un género</option>
+    <option value="">Select genres</option>
     <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
   </select>
 </div>

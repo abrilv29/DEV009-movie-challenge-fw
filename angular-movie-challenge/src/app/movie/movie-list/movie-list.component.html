@@ -1,4 +1,16 @@
 <p>movie-list works!</p>
+
+<!-- movie-list.component.html -->
+<select [(ngModel)]="selectSortOption" (change)="onSortMovie()">
+  <option value="popularity.asc">popularity.asc</option>
+  <option value="popularity.desc">popularity.desc</option>
+  <option value="vote_average.asc">Mejor Valorada</option>
+  <option value="vote_average.desc">Mejor Valorada</option>
+  <option value="original_title.asc">Title (A-Z)</option>
+  <option value="original_title.desc">Title (Z-A)</option>
+  <!-- Agrega más opciones de orden si es necesario -->
+</select>
+
     <div class="row">
       <div class="col-md-4" *ngFor="let movie of movies">
         <div class="card mb-4">

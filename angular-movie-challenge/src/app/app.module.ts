@@ -9,13 +9,16 @@ import { MovieServiceService } from './service/service.service';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieFilterComponent } from './movie/movie-filter/movie-filter.component';
 import { NavMenuComponent } from './movie/nav-menu/nav-menu.component';
+import { SearchComponent } from './movie/search/search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     MovieFilterComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
