@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.0 - 2023-10-11
+
+### Sprint learnings
+
+- Aprendi a crear una interface para alamcenar los tipos de datos en typescrit y asi poderlos usar en un observable
+- Aprendi a comunicar componentes usando  BehaviorSubjec.
+- logre ordenar la data con el params sort_by 
+- logre hacer el enpoint de detail/movie{movie_id} y mostrar la sinopsis de las movies.
+
+### Added
+
+- Cree una carpeta interface donde almacena los archivos de la data que se va utilizar para el tipado de datos.
+- Comunique mi component movie-list con search para buscar las movies por el nombre
+- Agregue a mi router la busqueda por id de las peliculas para que apuntara al enpoint de detail/movie{movie_id}. y poder mostrar lo details.
+- Corregi errores de los test para poder correr npm run test.
+
+
 ## 1.0.1 - 2023-10-03
 
 ### Sprint learnings

@@ -1,6 +1,7 @@
 <p>movie-detail works!</p>
 
 <div *ngIf="movie">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
     <h1>{{ movie.original_title }}</h1>
     <p>Géneros: {{ detailsGenres }}</p>
     <p>Sinopsis:{{ movie.overview}}</p>

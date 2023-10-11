@@ -85,8 +85,6 @@ export class MovieListComponent implements OnInit {
 
   // GENRES MOVIES CARDS
 
-  
-
 
 
 }
