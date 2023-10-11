@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Movie, MovieResult } from '../Interface/discover';
 import { Genre, GenreResult } from '../Interface/genres';
+import { DetailsResult } from '../Interface/details';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,20 @@ export class MovieServiceService {
   getMovieSort(sortMovies: string): Observable<MovieResult> {
     return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&sort_by=${sortMovies}`);
   }
+
+   // SERCH THE MOVIES
+
+   getSearchMovie(texto: string):Observable<MovieResult>{
+    const encodedQuery = encodeURIComponent(texto);
+    return this.http.get<MovieResult>(`${this.apiUrl}//search/movie?api_key=${this.apiKey}&query=${encodedQuery}`);
+   }
+
+   // DETAILS MOVIES 
+
+   getMovieDetails(movieId:number):Observable<DetailsResult>{
+    return this.http.get<DetailsResult>(`${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`);
+
+   }
 
 
 }

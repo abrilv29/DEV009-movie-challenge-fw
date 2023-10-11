@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieFilterComponent } from './movie-filter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 describe('MovieFilterComponent', () => {
   let component: MovieFilterComponent;
@@ -8,7 +10,8 @@ describe('MovieFilterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieFilterComponent]
+      declarations: [MovieFilterComponent],
+      imports: [HttpClientModule, FormsModule]
     });
     fixture = TestBed.createComponent(MovieFilterComponent);
     component = fixture.componentInstance;

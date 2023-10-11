@@ -12,14 +12,18 @@
 </select>
 
     <div class="row">
-      <div class="col-md-4" *ngFor="let movie of movies">
+        <div class="col-md-4" *ngFor="let movie of movies">
         <div class="card mb-4">
           <ng-container *ngIf="movie.poster_path"> <!-- Comprobar si poster_path existe -->
             <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top" alt="{{ movie.title }}">
           </ng-container>
           <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
-            <p class="card-text">Año de lanzamiento: {{ movie.release_date | date:'yyyy' }}</p>
+            <p class="card-text">Año de lanzamiento: {{ movie.release_date | date:'dd/MM/yyyy'}}</p>
+            <p>Géneros: {{ movie.genre_ids.join(', ') }}</p>
+            <p>Promedio de votación: {{ movie.vote_average }}</p>
+            <p>Total de votos: {{ movie.vote_count }}</p>
+            <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
           </div>
         </div>
       </div>

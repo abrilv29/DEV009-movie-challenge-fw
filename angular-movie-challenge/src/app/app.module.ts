@@ -10,6 +10,8 @@ import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieFilterComponent } from './movie/movie-filter/movie-filter.component';
 import { NavMenuComponent } from './movie/nav-menu/nav-menu.component';
 import { SearchComponent } from './movie/search/search.component';
+import { ComunicationMovieService } from './service-comunication/comunication-movie.service';
+import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component'
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { SearchComponent } from './movie/search/search.component';
     MovieFilterComponent,
     NavMenuComponent,
     SearchComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,10 @@ import { SearchComponent } from './movie/search/search.component';
     HttpClientModule,
     FormsModule  
   ],
-  providers: [MovieServiceService],
+  providers: [
+    MovieServiceService,
+    ComunicationMovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

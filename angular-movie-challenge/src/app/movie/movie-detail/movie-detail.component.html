@@ -1,0 +1,11 @@
+<p>movie-detail works!</p>
+
+<div *ngIf="movie">
+    <h1>{{ movie.original_title }}</h1>
+    <p>Géneros: {{ detailsGenres }}</p>
+    <p>Sinopsis:{{ movie.overview}}</p>
+
+    <p>Año de lanzamiento: {{ movie.release_date |  date:'dd/MM/yyyy'}}</p>
+    <!-- Otros detalles de la película -->
+  </div>
+  

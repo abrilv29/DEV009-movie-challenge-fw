@@ -8,10 +8,6 @@ import { MovieServiceService } from './service/service.service';
 })
 export class AppComponent {
 
-  tredingImg: string[] = [];
-
-  constructor(private moviesService: MovieServiceService){}
-
   /*ngOnInit(): void{
 
     this.moviesService.getsliderTrending().subscribe((data:any) =>{
@@ -21,5 +17,4 @@ export class AppComponent {
       });
     });
   }*/
-
 }

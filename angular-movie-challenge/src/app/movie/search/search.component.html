@@ -1,1 +1,18 @@
 <p>search works!</p>
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex" role="search" (ngSubmit)="onSearchMovie()">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="texto"
+                [ngModelOptions]="{standalone: true}">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Mostrar los resultados debajo del formulario -->
+<div *ngIf="searchResults.length > 0">
+    <h3>Resultados de la búsqueda:</h3>
+    <app-movie-list [movies]="searchResults"></app-movie-list>
+</div>

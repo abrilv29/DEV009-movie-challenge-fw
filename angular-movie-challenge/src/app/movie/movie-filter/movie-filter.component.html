@@ -30,6 +30,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ movie.title }}</h5>
           <p class="card-text">Año de lanzamiento: {{ movie.release_date | date:'yyyy' }}</p>
+          <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
         </div>
       </div>
     </div>

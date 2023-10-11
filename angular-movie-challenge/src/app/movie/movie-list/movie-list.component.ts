@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieResult, Movie } from 'src/app/Interface/discover';
 
 import { MovieServiceService } from 'src/app/service/service.service';
@@ -11,14 +11,14 @@ import { MovieServiceService } from 'src/app/service/service.service';
 })
 export class MovieListComponent implements OnInit {
 
-  movies: Movie[] = []; //
+  @Input() movies: Movie[] = [];
+
   currentPage: number = 1;
   totalPages: number = 0;
   pageSize: number = 1;
   pages: number[] = [];
 
   selectSortOption: string = 'popularity.asc';
-
 
 
   constructor(private moviesService: MovieServiceService) { }
@@ -36,6 +36,8 @@ export class MovieListComponent implements OnInit {
       this.movies = data.results;
       this.currentPage = data.page;
       this.totalPages = data.total_results;
+
+
 
     });
   }
@@ -81,6 +83,9 @@ export class MovieListComponent implements OnInit {
     });
   }
 
+  // GENRES MOVIES CARDS
+
+  
 
 
 
