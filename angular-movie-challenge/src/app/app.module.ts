@@ -11,7 +11,19 @@ import { MovieFilterComponent } from './movie/movie-filter/movie-filter.componen
 import { NavMenuComponent } from './movie/nav-menu/nav-menu.component';
 import { SearchComponent } from './movie/search/search.component';
 import { ComunicationMovieService } from './service-comunication/comunication-movie.service';
-import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component'
+import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 @NgModule({
@@ -27,7 +39,18 @@ import { MovieDetailComponent } from './movie/movie-detail/movie-detail.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule  
+    FormsModule,
+    BrowserAnimationsModule,
+
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatInputModule
+
   ],
   providers: [
     MovieServiceService,

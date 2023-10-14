@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent {
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  toggleSidenav(){
+    this.sidenav.toggle();
+  }
+
 
 }

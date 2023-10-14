@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MovieServiceService } from './service/service.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,7 @@ import { MovieServiceService } from './service/service.service';
 })
 export class AppComponent {
 
-  /*ngOnInit(): void{
 
-    this.moviesService.getsliderTrending().subscribe((data:any) =>{
-      console.log(data);
-      this.tredingImg = data.results.map((movie: any) => {
-        return`https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-      });
-    });
-  }*/
+  
+
 }
