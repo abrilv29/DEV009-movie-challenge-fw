@@ -4,7 +4,11 @@
     <button mat-icon-button (click)="toggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1>MovieChallenge</h1>
+    <h1 class="title-sidenav">MovieChallenge</h1>
+    <mat-form-field class="content-input">
+      <input matInput placeholder="Buscar">
+    </mat-form-field>
+    
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -12,19 +16,19 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav opened="true" mode="side" style="width: 180px;">
     <mat-nav-list>
-      <mat-list-item [routerLink]="['/movies-list']">
+      <mat-list-item routerLink="movies-list">
         <mat-icon mat-list-icon>home</mat-icon>
-        Home
+        Principal
       </mat-list-item>
-      <mat-list-item [routerLink]="['/movies-filter']">
+      <mat-list-item routerLink="movies-filter">
         <mat-icon mat-list-icon>movie_filter</mat-icon>
-        Movies
+       Peliculas
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-container>
-    <div style="height: 90vh;">
+    <div class="content-div"style="height: 90vh;">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-container>
