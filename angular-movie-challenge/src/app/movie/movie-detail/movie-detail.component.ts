@@ -10,7 +10,7 @@ import { DetailsResult } from 'src/app/Interface/details';
 })
 export class MovieDetailComponent implements OnInit {
 
-  movie: DetailsResult | undefined;
+  movie: DetailsResult | undefined ;
   detailsGenres: string = '';
 
   constructor(

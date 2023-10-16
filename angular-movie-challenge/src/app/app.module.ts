@@ -24,7 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -53,7 +54,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
 
   ],
   providers: [
