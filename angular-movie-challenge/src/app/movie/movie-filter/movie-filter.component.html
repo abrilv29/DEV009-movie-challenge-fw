@@ -1,15 +1,17 @@
 <p>movie-filter works!</p>
 
 <!-- Selector para orden -->
-<select [(ngModel)]="selectSortGenre" (change)="onSortMovieGenres()">
-  <option value="popularity.asc">Popularidad ascendente</option>
-  <option value="popularity.desc">Popularidad descendente</option>
-  <option value="vote_average.asc">Mejor Valorada</option>
-  <option value="vote_average.desc">Peor Valorada</option>
-  <option value="original_title.asc">Título (A-Z)</option>
-  <option value="original_title.desc">Título (Z-A)</option>
-</select>
-
+<mat-form-field>
+  <mat-label>Ordenar por:</mat-label>
+  <select matNativeControl required [(ngModel)]="selectSortGenre" (change)="onSortMovieGenres()">
+    <option value="popularity.asc">popularity.asc</option>
+    <option value="popularity.desc">popularity.desc</option>
+    <option value="vote_average.asc">vote_average.asc</option>
+    <option value="vote_average.desc">vote_average.desc</option>
+    <option value="original_title.asc">Title (A-Z)</option>
+    <option value="original_title.desc">Title (Z-A)</option>
+  </select>
+</mat-form-field>
 
 <div class="content-select">
   <label for="genreSelect">Genres:</label>
@@ -19,21 +21,27 @@
   </select>
 </div>
 
-<div *ngIf="movies.length > 0">
-  <h2>Películas:</h2>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let movie of movies">
-      <div class="card mb-4">
-        <ng-container *ngIf="movie.poster_path"> <!-- Comprobar si poster_path existe -->
-          <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top" alt="{{ movie.title }}">
-        </ng-container>
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">Año de lanzamiento: {{ movie.release_date | date:'yyyy' }}</p>
-          <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
-        </div>
-      </div>
-    </div>
+<!--CADS - MOVIES ANGULAR MATERIAL-->
+<div class="content-card">
+  <div class="card-content" *ngFor="let movie of movies">
+    <mat-card class="mat-card">
+      <mat-card-subtitle>{{ movie.release_date | date:'dd-MMM-yyyy' }}</mat-card-subtitle>
+      <ng-container *ngIf="movie.poster_path">
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
+      </ng-container>
+      <mat-card-header class="mat-card-header">
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Promedio de votación: {{ movie.vote_average }}</p>
+        <p>Total de votos: {{ movie.vote_count }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+        <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
 
@@ -51,6 +59,7 @@
     </li>
   </ul>
 </nav>
+
 
 
 

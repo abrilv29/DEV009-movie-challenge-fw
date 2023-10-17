@@ -10,7 +10,7 @@ import { DetailsResult } from 'src/app/Interface/details';
 })
 export class MovieDetailComponent implements OnInit {
 
-  movie: DetailsResult | undefined ;
+  movie: DetailsResult | undefined;
   detailsGenres: string = '';
 
   constructor(
@@ -24,7 +24,6 @@ export class MovieDetailComponent implements OnInit {
       this.movieService.getMovieDetails(movieId).subscribe((data: DetailsResult) => {
         console.log(data);
         this.movie = data;
-         // Formatear los géneros como una cadena legible
          this.detailsGenres = this.movie.genres.map((genre) => genre.name).join(', ');
       });
     });

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,9 +12,8 @@ import { NavMenuComponent } from './movie/nav-menu/nav-menu.component';
 import { SearchComponent } from './movie/search/search.component';
 import { ComunicationMovieService } from './service-comunication/comunication-movie.service';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -37,6 +36,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NavMenuComponent,
     SearchComponent,
     MovieDetailComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,9 +55,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatFormFieldModule
-
+    MatFormFieldModule,
   ],
+  
   providers: [
     MovieServiceService,
     ComunicationMovieService
