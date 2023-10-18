@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
     
   }
 
-  onSearchMovie(): void {
+  onSearchMovie() {
     if(this.texto){
       this.moviesService.getSearchMovie(this.texto).subscribe((data:MovieResult) => {
         console.log(data);

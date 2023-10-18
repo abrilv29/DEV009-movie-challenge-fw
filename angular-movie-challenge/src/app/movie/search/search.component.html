@@ -4,11 +4,12 @@
     <div class="container-fluid">
       <form class="d-flex" role="search" (ngSubmit)="onSearchMovie()">
         <mat-form-field class="example-full-width">
-          <input matInput type="search" placeholder="Search" [(ngModel)]="texto" name="texto">
+          <input matInput type="text" placeholder="Search" [(ngModel)]="texto" name="texto">
         </mat-form-field>
         <button mat-raised-button color="primary" type="submit">Search</button>
       </form>
     </div>
+    
 
   
   <!-- Mostrar los resultados debajo del formulario -->

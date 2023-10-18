@@ -10,9 +10,11 @@ export class NavMenuComponent {
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  toggleSidenav(){
+  isExpanded: boolean = false;
+
+  /*toggleSidenav(){
     this.sidenav.toggle();
-  }
+  }*/
 
 
 

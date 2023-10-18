@@ -12,3 +12,25 @@
     width: 65%;
     margin: 30px auto;
 }
+
+/* Archivo CSS o SCSS */
+mat-sidenav-container {
+    height: 100%;
+  
+    mat-sidenav {
+      mat-nav-list {
+        .menu-item {
+          margin-left: 8px;
+        }
+  
+        .chevron-button {
+          transition: 300ms ease-in-out;
+          transform: rotate(0deg);
+        }
+  
+        .chevron-button.rotated {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
