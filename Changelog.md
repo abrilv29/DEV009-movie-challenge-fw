@@ -11,6 +11,18 @@
 
 ### Added
 
+- Instale y configure angualar material usarlo en mis componentes
+- Usando  la libreria sidenav de  angular material cree un lazyload para rutas children y asi poder cargar los componentes de manera peresosa.
+- Cree mi primer test usando jasmin y creando mocks
+- Le di estilos a mi component movie-list con sass para crear cards con angular material.
+
+### Fixed
+
+- Se resuleve la manera en que queria mostrar los componentes en el sidenav con la carga peresosa.
+- Implemente un sistema de rutas en movie.routing children
+- En los test se implemento el uso de jasmine.createSpyObj para poder simular el request y el serve asi poder mockear
+
+
 
 
 
