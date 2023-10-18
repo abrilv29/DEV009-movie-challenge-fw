@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.1 - 2023-10-18
+
+### Sprint learnings
+
+- Aprendi a usar angular material 
+- Aprendi a usar el lazyload para rutas hijas
+- Aprendi de test usando jasmin
+- Aprendi a dar estilos en sass extencion (scss)
+
+### Added
+
+
+
+
 ## 1.1.0 - 2023-10-11
 
 ### Sprint learnings
