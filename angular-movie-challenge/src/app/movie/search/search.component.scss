@@ -1,0 +1,25 @@
+.container-fluid{
+    background-color: aqua;
+    margin: 30px auto;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-search{
+    width: 90%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;  
+    margin: 20px;
+}
+.container-search{
+    width: 90%;
+    border-radius: 40px; 
+    outline: none;
+
+    
+
+}

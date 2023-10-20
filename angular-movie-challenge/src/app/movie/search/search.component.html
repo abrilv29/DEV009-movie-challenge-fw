@@ -2,11 +2,11 @@
 
 
 <div class="container-fluid">
-  <form class="d-flex" role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
-    <mat-form-field class="example-full-width">
+  <form class="form-search" role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
+    <mat-form-field class="container-search">
       <input matInput formControlName="texto" placeholder="Search">
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Search</button>
+    <button class="btn-search" type="submit"><mat-icon>search</mat-icon></button>
   </form>
 </div>
 

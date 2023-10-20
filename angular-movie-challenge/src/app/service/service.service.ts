@@ -55,6 +55,4 @@ export class MovieServiceService {
     return this.http.get<DetailsResult>(`${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`);
 
    }
-
-
 }
