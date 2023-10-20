@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieRoutingModule } from './movie-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { MovieListComponent } from '../movie/movie-list/movie-list.component';
@@ -37,6 +38,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MovieRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
 
     MatToolbarModule,
     MatSidenavModule,

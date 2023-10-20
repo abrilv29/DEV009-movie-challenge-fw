@@ -24,16 +24,14 @@
       <ng-container *ngIf="movie.poster_path">
         <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
       </ng-container>
-      <mat-card-header class="mat-card-header">
+      <mat-card-content>
         <mat-card-title class="mat-card-title">{{ movie.title }}</mat-card-title>
         <mat-card-subtitle>{{ movie.release_date | date:'dd-MMM-yyyy' }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
         <p>Promedio de votación: {{ movie.vote_average }}</p>
         <p>Total de votos: {{ movie.vote_count }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
+        <button id="more"><a [routerLink]="['/movie', movie.id]">Ver detalles</a></button>
       </mat-card-actions>
     </mat-card>
   </div>
