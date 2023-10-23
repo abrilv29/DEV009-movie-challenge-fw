@@ -3,6 +3,7 @@ import { MovieServiceService } from 'src/app/service/service.service';
 
 import { Movie, MovieResult } from 'src/app/Interface/discover';
 import { Genre, GenreResult } from 'src/app/Interface/genres';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -15,9 +16,9 @@ export class MovieFilterComponent implements OnInit {
   genres: Genre[] = [];
   selectGenreId: number | undefined;
   movies: Movie[] = [];
-  public currentPageGenre: number = 1;
-  public totalPagesGenre: number = 0;
-  pageSizeGenre: number = 1;
+  currentPageGenre: number = 1;
+  totalPagesGenre: number = 0;
+  pageSizeGenre: number = 5;
   pages: number[] = [];
 
   selectSortGenre:string = 'popularity.asc';
@@ -34,14 +35,15 @@ export class MovieFilterComponent implements OnInit {
     });
   }
 
-  onGenreSelect(genreId: number | undefined): void {
+  onGenreSelect(genreId:  number | undefined): void {
     if (genreId !== undefined) {
       // Realiza la lógica para cargar las películas del género seleccionado
       this.selectGenreId = genreId;
-      this.movieService.getGenerCategory(genreId, this.currentPageGenre).subscribe((data: MovieResult) => {
+      this.movieService.getGenerCategory(genreId,this.currentPageGenre).subscribe((data: MovieResult) => {
         console.log(data);
         this.movies = data.results;
         this.currentPageGenre = data.page;
+        console.log(this.currentPageGenre);
         this.totalPagesGenre = data.total_results;
       });
     }
@@ -49,8 +51,28 @@ export class MovieFilterComponent implements OnInit {
 
   // PAGINACION
 
-  getMoviePagination() {
-    return this.movies/* .slice(indexStart, indexEnd) */;
+
+    onPageChange(event: PageEvent) {
+      this.currentPageGenre = event.pageIndex + 1;
+      this.pageSizeGenre = event.pageSize;
+      this.onGenreSelect(this.selectGenreId);
+      console.log('currentPageGenre:', this.currentPageGenre);
+      console.log('pageSizeGenre:', this.pageSizeGenre);
+    }
+    getMoviePaginationGenres():number { 
+      /* return this.movies/* .slice(indexStart, indexEnd) */
+       if(this.movies.length === 0 || this.pageSizeGenre === 0) {
+         return 0;
+     }
+    return Math.ceil(this.totalPagesGenre/this.pageSizeGenre);
+  }
+
+
+
+
+
+ /* getMoviePagination() {
+    return this.movies/* .slice(indexStart, indexEnd) ;
   }
 
   nextPageGenre() {
@@ -72,7 +94,7 @@ export class MovieFilterComponent implements OnInit {
       return 0;
     }
     return Math.ceil(this.movies.length / this.pageSizeGenre);
-  }
+  }*/
 
   // SORT THE MOVIES
 
