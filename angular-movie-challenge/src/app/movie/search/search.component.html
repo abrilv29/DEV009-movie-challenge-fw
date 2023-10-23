@@ -1,12 +1,23 @@
 <p>search works!</p>
 
 
-<div class="container-fluid">
-  <form class="form-search" role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
-    <mat-form-field class="container-search">
-      <input matInput formControlName="texto" placeholder="Search">
+<!--<div class="container-fluid">
+  <form class="form-search"  role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
+    <mat-form-field >
+      <input matInput  formControlName="texto" placeholder="Search movie" style="color:white;">
     </mat-form-field>
     <button class="btn-search" type="submit"><mat-icon>search</mat-icon></button>
+  </form>
+</div>-->
+
+<div class="container-fluid">
+  <form class="form-search" role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
+    <div class="custom-form-field">
+      <input class="input-content" type="text" formControlName="texto" placeholder="Search movie" style="color:white;">
+      <button class="btn-search" type="submit">
+        <span class="material-icons">search</span>
+      </button>
+    </div>
   </form>
 </div>
 
