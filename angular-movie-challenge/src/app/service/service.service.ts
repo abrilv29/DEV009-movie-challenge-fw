@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Movie, MovieResult } from '../Interface/discover';
-import { Genre, GenreResult } from '../Interface/genres';
+import { MovieResult } from '../Interface/discover';
+import { GenreResult } from '../Interface/genres';
 import { DetailsResult } from '../Interface/details';
 
 @Injectable({
@@ -18,7 +18,6 @@ export class MovieServiceService {
   //tipado usando interface remplazando any
 
   getDiscoveryMovie(page: number): Observable<MovieResult> {
-    //url de la api a consumir en este caso discoveri
     return this.http.get<MovieResult>(`${this.apiUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`);
 
   }

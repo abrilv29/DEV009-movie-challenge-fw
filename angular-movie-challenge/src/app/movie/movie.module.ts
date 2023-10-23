@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MovieRoutingModule } from './movie-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { MovieListComponent } from '../movie/movie-list/movie-list.component';
 import { MovieFilterComponent } from '../movie/movie-filter/movie-filter.component';
@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MovieServiceService } from '../service/service.service';
+import { ComunicationMovieService } from '../service-comunication/comunication-movie.service';
 
 
 
@@ -35,6 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MovieDetailComponent,
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     MovieRoutingModule,
     FormsModule,
@@ -51,6 +54,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSelectModule,
     MatPaginatorModule,
     MatFormFieldModule,
+  ],
+  providers: [
+    MovieServiceService,
+    ComunicationMovieService
   ],
 })
 export class MovieModule { }

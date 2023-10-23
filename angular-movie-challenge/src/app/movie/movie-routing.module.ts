@@ -15,7 +15,7 @@ const routes: Routes = [
       { path:'search', component: SearchComponent },
       { path:'movie-list', component: MovieListComponent },
       { path:'movie-filter', component:MovieFilterComponent },
-      { path: 'movie/:id', component: MovieDetailComponent },
+      { path:'movie/:id', component: MovieDetailComponent },
       { path:'**', redirectTo: ''}
     ]
   }
