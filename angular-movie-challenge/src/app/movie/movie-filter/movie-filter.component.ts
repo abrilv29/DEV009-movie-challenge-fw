@@ -34,15 +34,15 @@ export class MovieFilterComponent implements OnInit {
     });
   }
 
-  onGenreSelect(): void {
-    if (this.selectGenreId) {
-      // Obtener las películas del género seleccionado
-      this.movieService.getGenerCategory(this.selectGenreId, this.currentPageGenre).subscribe((data: MovieResult) => {
+  onGenreSelect(genreId: number | undefined): void {
+    if (genreId !== undefined) {
+      // Realiza la lógica para cargar las películas del género seleccionado
+      this.selectGenreId = genreId;
+      this.movieService.getGenerCategory(genreId, this.currentPageGenre).subscribe((data: MovieResult) => {
         console.log(data);
         this.movies = data.results;
         this.currentPageGenre = data.page;
         this.totalPagesGenre = data.total_results;
-
       });
     }
   }
@@ -64,7 +64,6 @@ export class MovieFilterComponent implements OnInit {
   private setPage(page: number) {
     if (page >= 1 && page <= this.totalPagesGenre) {
       this.currentPageGenre = page;
-      this.onGenreSelect();
     }
   }
 

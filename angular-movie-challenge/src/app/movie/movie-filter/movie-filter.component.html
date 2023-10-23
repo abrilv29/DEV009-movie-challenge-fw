@@ -1,24 +1,30 @@
-<p>movie-filter works!</p>
+<!-- SORT-BY MOVIES -->
+<section class="principal-content-filter">
+  <div class="container-filter">
+    <h4 class="genres"> GENRES MOVIES </h4>
+    <hr>
+</div>
+  <div class="content-select-filter">
+    <p class="sort-select-filter">SORT-BY:</p>
+    <select [(ngModel)]="selectSortGenre" (change)="onSortMovieGenres()"class="custom-select-filter" required>
+      <option value="popularity.asc">popularity.asc</option>
+      <option value="popularity.desc">popularity.desc</option>
+      <option value="vote_average.asc">vote_average.asc</option>
+      <option value="vote_average.desc">vote_average.desc</option>
+      <option value="original_title.asc">Title (A-Z)</option>
+      <option value="original_title.desc">Title (Z-A)</option>
+    </select>
+  </div>
+</section>
 
-<!-- Selector para orden -->
-<mat-form-field>
-  <mat-label>Ordenar por:</mat-label>
-  <select matNativeControl required [(ngModel)]="selectSortGenre" (change)="onSortMovieGenres()">
-    <option value="popularity.asc">popularity.asc</option>
-    <option value="popularity.desc">popularity.desc</option>
-    <option value="vote_average.asc">vote_average.asc</option>
-    <option value="vote_average.desc">vote_average.desc</option>
-    <option value="original_title.asc">Title (A-Z)</option>
-    <option value="original_title.desc">Title (Z-A)</option>
-  </select>
-</mat-form-field>
-
+<!-- GENRES MOVIES -->
 <div class="content-select">
-  <label for="genreSelect">Genres:</label>
-  <select id="genreSelect" [(ngModel)]="selectGenreId" (change)="onGenreSelect()">
-    <option value="">Select genres</option>
-    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-  </select>
+  <div id="genreSelect" class="genre-buttons">
+    <button (click)="onGenreSelect(undefined)">All Genres</button>
+    <button *ngFor="let genre of genres" (click)="onGenreSelect(genre.id)">
+      {{ genre.name }}
+    </button>
+  </div>
 </div>
 
 <!--CADS - MOVIES ANGULAR MATERIAL-->
