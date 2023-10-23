@@ -1,91 +1,5 @@
-/*.content-card{
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
-  gap: 8px;
-  align-items: center;
-  justify-items: center;
-}
-
-.cta-background {
-  background-size: cover;
-  background-position: center center;
-  bottom: 0;
-  filter: blur(50px);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-
-.container {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-}
-
-.cta {
-  background: #333;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-  height: 400px;
-  width: 300px;
-  overflow: hidden;
-  position: relative;
-  box-sizing: border-box;
-
-  &:hover {
-     
-     img {
-        top: -10%;
-        filter: brightness(70%);
-     }
-     
-     .text {
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(black,0.85);
-        box-shadow: 0 0 20px rgba(black,0.4);
-        color: white;
-     }
-  }
-  
-  img {
-     bottom: 0;
-     filter: brightness(100%);
-     left: 0;
-     position: absolute;
-     right: 0;
-     top: 0;
-     transition: 0.5s ease-in-out;
-     width: 115%;
-  }
-  
-  .text {
-     bottom: -40%;
-     padding: 15px;
-     position: absolute;
-     transition: 0.5s ease-in-out;
-
-     mat-card-title {
-        color: #fff;
-        display: inline-block;
-        font-weight: 300;
-        margin-bottom: 5px;
-        position: relative;
-        font-size: 18px;
-     }
-     
-     p {
-        color: #fff;
-        font-weight: 300;
-     }
-  }
-}*/
-
+ /* movie-list.component.scss */
 .principal-content{
-
   display: grid;
   grid-template-columns: 50% 50%;
 }
@@ -107,9 +21,6 @@ hr{
   height: 2px; 
   border-style: solid; 
 }
-
-
-
 
 .content-select{
   padding: 20px;
@@ -134,8 +45,6 @@ hr{
     background-color: #333; /* Cambia el color de fondo de las opciones */
   }
 }
-
-
 
 .container-card{
    display: grid;
@@ -244,4 +153,14 @@ span{
  }
 }
 
- /* movie-list.component.scss */
+mat-paginator {
+  grid-column: span 5;
+  width: 100%; 
+  font-weight: 400;
+}
+
+
+
+
+
+
