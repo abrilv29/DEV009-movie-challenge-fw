@@ -1,6 +1,6 @@
 // models
 
-export interface Genre {
+/*export interface Genre {
     id: number;
     name: string;
   }
@@ -15,5 +15,5 @@ export interface Genre {
     genre: string; 
     director: string;
     poster_url: string; 
-  }
+  }*/
   
