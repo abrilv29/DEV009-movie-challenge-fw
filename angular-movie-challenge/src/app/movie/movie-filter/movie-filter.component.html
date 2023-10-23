@@ -2,7 +2,7 @@
 <section class="principal-content-filter">
   <div class="container-filter">
     <h4 class="genres"> GENRES MOVIES </h4>
-    <hr>
+    <hr class="separator">
 </div>
   <div class="content-select-filter">
     <p class="sort-select-filter">SORT-BY:</p>
@@ -48,7 +48,6 @@
 
 
 <!--PAGINATOR THE MOVIES GENRES-->
-
 <mat-paginator [length]="totalPagesGenre" [pageSize]="pageSizeGenre" [pageIndex]="currentPageGenre - 1"
   (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 50, 100]" class="full-width-paginator">
 </mat-paginator>
