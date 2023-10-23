@@ -1,12 +1,35 @@
-<p>movie-detail works!</p>
+<h4 class="details-titule">DETAILS MOVIES</h4>
+<hr class="separator-details">
 
-<div *ngIf="movie">
+
+<!--<div *ngIf="movie" [ngStyle]="{'background-image': 'url(' + getBackdropUrl() + ')'}" class="backdrop-container">
+  <div class="content-cards">
     <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
-    <h1>{{ movie.title }}</h1>
-    <p>Géneros: {{ detailsGenres }}</p>
-    <p>Sinopsis:{{ movie.overview}}</p>
-
-    <p>Año de lanzamiento: {{ movie.release_date |  date:'dd/MM/yyyy'}}</p>
-    <!-- Otros detalles de la película -->
+    <div class="header-details">
+      <h1 class="movie-title">{{ movie.title }}</h1>
+      <div class="body-details">
+        <p class="date-details">{{ movie.release_date | date:'dd/MM/yyyy'}}</p>
+        <p class="vote-details"><span class="material-icons">grade</span> {{ movie.vote_average }}</p>
+      </div>
+      <p class="genres-details"> {{ detailsGenres }}</p>
+      <p class="overview-details">{{ movie.overview}}</p>
+    </div>
   </div>
-  
+</div>-->
+
+<div *ngIf="movie" class="backdrop-container">
+  <div class="background" [ngStyle]="{'background-image': 'url(' + getBackdropUrl() + ')'}"></div>
+  <div class="content-cards">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
+    <div class="header-details">
+      <h1 class="movie-title">{{ movie.title }}</h1>
+      <div class="body-details">
+        <p class="date-details">{{ movie.release_date | date:'dd/MM/yyyy'}}</p>
+        <p class="vote-details"><span class="material-icons">grade</span> {{ movie.vote_average }}</p>
+      </div>
+      <p class="genres-details"> {{ detailsGenres }}</p>
+      <p class="overview-details">{{ movie.overview}}</p>
+    </div>
+  </div>
+</div>
+
