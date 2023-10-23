@@ -1,4 +1,5 @@
 export interface DetailsResult {
+    backdrop_path:         string;
     genres:                GenreDetails[];
     id:                    number;
     original_title:        string;
