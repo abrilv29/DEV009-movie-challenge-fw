@@ -58,28 +58,6 @@ export class MovieListComponent implements OnInit {
   return Math.ceil(this.totalPages/this.pageSize);
 }
 
-  /*nextPage() {
-    this.setPage(this.currentPage + 1);
-  }
-
-  prevPage() {
-    this.setPage(this.currentPage - 1);
-  }*/
-
-  /*private setPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.getDiscoveryMovie(this.currentPage);
-    }
-  }*/
-
-  /*get totalMoviePages(): number {
-    if (this.movies.length === 0 || this.pageSize === 0) {
-      return 0;
-    }
-    return Math.ceil(this.movies.length / this.pageSize);
-  }*/
-
   // SORT THE MOVIES
 
   onSortMovie(){
