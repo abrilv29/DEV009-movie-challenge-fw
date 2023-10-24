@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieServiceService } from 'src/app/service/service.service';
 import { DetailsResult } from 'src/app/Interface/details';
 import { Subscription } from 'rxjs';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,13 +14,17 @@ export class MovieDetailComponent implements OnInit {
   movieId: number = 0;
   movie: DetailsResult | undefined;
   detailsGenres: string = '';
+  videoUrl: SafeResourceUrl | undefined;
+  showVideo: boolean = false; // Agrega esta variable
+  isModalOpen = false; // Agrega esta variable
 
   subscription: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieServiceService,
-  ) { }
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,6 +33,18 @@ export class MovieDetailComponent implements OnInit {
         console.log(data);
         this.movie = data;
         this.detailsGenres = this.movie.genres.map((genre) => genre.name).join(', ');
+
+        // Obtén la URL del video
+        this.movieService.getMovieVideos(this.movieId).subscribe((videosData: any) => {
+          if (videosData && videosData.results) {
+            const trailer = videosData.results.find((video: { type: string }) => video.type === 'Trailer');
+            if (trailer) {
+              // Marca la URL como segura
+              this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${trailer.key}`);
+              this.showVideo = true; // Muestra el video
+            }
+          }
+        });
       });
     });
   }
@@ -43,5 +60,13 @@ export class MovieDetailComponent implements OnInit {
     }
     return ''; // O maneja un valor por defecto si movie no está definido
   }
-}
 
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+}
