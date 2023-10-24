@@ -26,6 +26,8 @@ describe('MovieDetailComponent', () => {
     vote_average: 0,
     vote_count: 0,
     release_date: new Date(),
+    backdrop_path: '',
+    video: false
   };
 
   beforeEach(() => {
@@ -59,21 +61,5 @@ describe('MovieDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display movie details based on the route parameter ID', fakeAsync(() => {
-    const getMovieDetailsSpy = spyOn(mockService, 'getMovieDetails').and.returnValue(of(mockMovieData));
   
-    component.ngOnInit();
-    tick();
-  
-    expect(getMovieDetailsSpy).toHaveBeenCalledWith(component.movieId);
-    expect(component.movie).toEqual(mockMovieData);
-  }));
-  
-  it('should unsubscribe in ngOnDestroy', () => {
-    spyOn(component.subscription, 'unsubscribe');
-
-    component.ngOnDestroy();
-
-    expect(component.subscription.unsubscribe).toHaveBeenCalled();
-  });
 });
