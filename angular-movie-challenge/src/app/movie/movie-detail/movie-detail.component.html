@@ -22,7 +22,8 @@
       <!--MODAL CLOSE -->
       <div *ngIf="isModalOpen" class="modal-overlay">
         <div class="modal-content">
-          <button class="modal-close" (click)="closeModal()">Cerrar</button>
+          <button class="modal-close" (click)="closeModal()"> <mat-icon>disabled_by_default
+          </mat-icon></button>
           <!-- IFRAME WATCH VIDEO -->
           <iframe [src]="videoUrl" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
