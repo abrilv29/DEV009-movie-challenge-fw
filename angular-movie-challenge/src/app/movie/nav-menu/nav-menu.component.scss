@@ -4,6 +4,7 @@ mat-toolbar{
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
   display: flex;
   justify-content: flex-end;
+  border: none;
 }
 .title-sidenav{
   font-weight: normal;
@@ -34,17 +35,18 @@ mat-sidenav-container{
 mat-sidenav-container {
   height: 100vh;
   mat-sidenav {
+    border: none;
     mat-nav-list {
       display: flex;
       flex-direction: column;
       justify-content:center;
-
-      background-color:#1a1c31;
+      background: #0f0c29 ;
       height: 100%;
 
       .menu-item {
         margin-left: 8px;
         color: #f5f5f5;
+        font-weight: 300;
         
       }
 
@@ -53,6 +55,7 @@ mat-sidenav-container {
      
         &:hover{
           color:#fc4e67;
+          color: #f5f5f5;
         }
       }
 
@@ -68,10 +71,10 @@ mat-sidenav-container {
 
     mat-list-item{
       background-color: transparent;
-      margin: 8px;
 
       &:hover{
         background-color: #fc4e67;
+        color:#f5f5f5;
       }
 
     }

@@ -15,11 +15,21 @@
   font-weight: 500;
   line-height: 10px;
 }
-hr{
+.separator-list{
   width: 35%;
-  border-color: #fc4e67; 
-  height: 2px; 
-  border-style: solid; 
+  border-color: #fc4e67;
+  height: 2px;
+  border-style: solid;
+  animation: separator-width 1s ease-out forwards;
+
+  @keyframes separator-width {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 }
 
 .content-select{
