@@ -9,6 +9,7 @@ export interface DetailsResult {
     title:                 string;
     vote_average:          number;
     vote_count:            number;
+    video:                 boolean;
 }
 
 export interface GenreDetails {

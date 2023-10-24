@@ -29,10 +29,17 @@
       </div>
       <p class="genres-details"> {{ detailsGenres }}</p>
       <p class="overview-details">{{ movie.overview}}</p>
-      <button mat-button class="button" style="color: white;"> Play
-        <mat-icon>play_circle_outline</mat-icon> 
+      <!-- Botón para abrir la ventana modal -->
+      <button mat-button class="button" style="color: white;" (click)="openModal()"> Play
+        <mat-icon>play_circle_outline</mat-icon>
       </button>
-    </div>
-  </div>
-</div>
 
+      <!-- Ventana modal -->
+      <div *ngIf="isModalOpen" class="modal-overlay">
+        <div class="modal-content">
+          <button class="modal-close" (click)="closeModal()">Cerrar</button>
+          <!-- Contenido del video aquí -->
+          <iframe [src]="videoUrl" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieResult } from '../Interface/discover';
 import { GenreResult } from '../Interface/genres';
 import { DetailsResult } from '../Interface/details';
+import { VideoResult } from '../Interface/video';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,11 @@ export class MovieServiceService {
    getMovieDetails(movieId:number):Observable<DetailsResult>{
     return this.http.get<DetailsResult>(`${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`);
 
+   }
+
+   // TRAILER MOVIES
+
+   getMovieVideos(movieId:number):Observable<VideoResult>{
+    return this.http.get<VideoResult>(`${this.apiUrl}/movie/${movieId}/videos?api_key=${this.apiKey}`);
    }
 }
