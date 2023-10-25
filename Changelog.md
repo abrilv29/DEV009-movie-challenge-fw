@@ -4,10 +4,26 @@
 
 ### Sprint learnings
 
-- Aprendi a usar angular material 
-- Aprendi a usar el lazyload para rutas hijas
-- Aprendi de test usando jasmin
-- Aprendi a dar estilos en sass extencion (scss)
+- Refactorize el modulo para poder crear un router children
+- Cree un nuevo router
+- Agregue la comunicación entre componentes para cargar el mismo componente de movie-list 
+- Integre pruebas unitarias de movie-list
+
+### Added
+- Agregue la comunicación  entre componentes usando la propiedad BehaviorSubject.
+- Modifque el scss de cada componente
+- Logre mostar el trailer de la peliculas
+
+### Changed
+
+- Modifique la paginación para usar angular material y tambien remplase los select del genres por buttons en el componente movie-filter.
+
+### Fixed
+
+- Soluciones el ruteo del componente movies, por que no me mostraba los datos de componente details.
+
+
+### Commit log
 
 
 * f9ad22e Merge pull request #11 from abrilv29/test (Abril) 2023-10-24
