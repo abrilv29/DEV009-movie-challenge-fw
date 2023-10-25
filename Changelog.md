@@ -1,5 +1,37 @@
 # Changelog
 
+## 1.1.1 - 2023-10-25
+
+### Sprint learnings
+
+- Aprendi a usar angular material 
+- Aprendi a usar el lazyload para rutas hijas
+- Aprendi de test usando jasmin
+- Aprendi a dar estilos en sass extencion (scss)
+
+
+* f9ad22e Merge pull request #11 from abrilv29/test (Abril) 2023-10-24
+* 0d20eeb readme actualizado parte 1 (Abril) 2023-10-24
+* 448cb11 Merge pull request #10 from abrilv29/test (Abril) 2023-10-24
+* 52a85db test component movie-list (Abril) 2023-10-24
+* 28f0b5e Boton cerrar ventana modal cambios en css (Abril) 2023-10-23
+* ce8b48c Cambios en el router-movie (Abril) 2023-10-23
+* 2b27e57 Ultimos cambios en sidenav css (Abril) 2023-10-23
+* cc09634 Merge pull request #9 from abrilv29/details-movie (Abril) 2023-10-23
+* 52cc7ca Movie details video (Abril) 2023-10-23
+* f09e5f9 Cambios en el css details (Abril) 2023-10-23
+* b9d3993 Merge pull request #8 from abrilv29/details-movie (Abril) 2023-10-23
+* ad1558f Cambios en el componente movie-details parte1 (Abril) 2023-10-23
+* 07c1d8f Merge pull request #7 from abrilv29/genres-movies (Abril) 2023-10-23
+* 98ee11d Cambios en movie-filter genres parte3 (Abril) 2023-10-23
+* fceded2 Cambios en movie-filter genres parte2 (Abril) 2023-10-23
+* 3e61296 Cambios en movie-filter genres parte1 (Abril) 2023-10-23
+* 7ca0823 Merge pull request #6 from abrilv29/sidenav (Abril) 2023-10-23
+* 690e908 Cambios en el sidenav parte1 (Abril) 2023-10-23
+* 0b4880f Merge pull request #5 from abrilv29/cards-style (Abril) 2023-10-23
+* d36fed2 Cambios en el select movie-list (Abril) 2023-10-23
+
+
 ## 1.1.1 - 2023-10-18
 
 ### Sprint learnings
