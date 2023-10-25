@@ -15,8 +15,8 @@ export class MovieDetailComponent implements OnInit {
   movie: DetailsResult | undefined;
   detailsGenres: string = '';
   videoUrl: SafeResourceUrl | undefined;
-  showVideo: boolean = false; // Agrega esta variable
-  isModalOpen = false; // Agrega esta variable
+  showVideo: boolean = false;
+  isModalOpen = false;
 
   subscription: Subscription = new Subscription();
 
@@ -28,14 +28,33 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.movieId = +params['id'];
-      this.movieService.getMovieDetails(this.movieId).subscribe((data: DetailsResult) => {
+      const idString = params['id']; // Obtiene el valor del parámetro como cadena
+      this.movieId = parseInt(idString, 10); // Convierte la cadena a número
+      if (!isNaN(this.movieId)) {
+        // El valor es un número válido, puedes continuar con la solicitud HTTP
+        this.getMovieDetails(this.movieId);
+      } else {
+        // Maneja el caso en el que el valor del parámetro no es un número válido
+        console.error('Invalid movie ID:', idString);
+      }
+    });
+  }
+
+  getMovieDetails(movieId: number) {
+    this.movieService.getMovieDetails(movieId).subscribe(
+      (data: any) => {
         console.log(data);
         this.movie = data;
-        this.detailsGenres = this.movie.genres.map((genre) => genre.name).join(', ');
+        if (this.movie !== undefined) {
+          this.detailsGenres = this.movie.genres.map((genre) => genre.name).join(', ');
+        } else {
+          // Maneja el caso en el que this.movie es undefined
+          console.error('Movie is undefined.');
+        }
+        
 
         // Obtén la URL del video
-        this.movieService.getMovieVideos(this.movieId).subscribe((videosData: any) => {
+        this.movieService.getMovieVideos(movieId).subscribe((videosData: any) => {
           if (videosData && videosData.results) {
             const trailer = videosData.results.find((video: { type: string }) => video.type === 'Trailer');
             if (trailer) {
@@ -45,20 +64,22 @@ export class MovieDetailComponent implements OnInit {
             }
           }
         });
-      });
-    });
+      },
+      (error: any) => {
+        console.error('Error en la solicitud HTTP:', error);
+      }
+    );
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  // Método para obtener la URL completa del backdrop_path
   getBackdropUrl() {
     if (this.movie) {
       return 'https://image.tmdb.org/t/p/original' + this.movie.backdrop_path;
     }
-    return ''; // O maneja un valor por defecto si movie no está definido
+    return '';
   }
 
   openModal() {
@@ -68,5 +89,4 @@ export class MovieDetailComponent implements OnInit {
   closeModal() {
     this.isModalOpen = false;
   }
-
 }

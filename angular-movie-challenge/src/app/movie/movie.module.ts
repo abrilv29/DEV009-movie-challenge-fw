@@ -25,6 +25,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MovieServiceService } from '../service/service.service';
 import { ComunicationMovieService } from '../service-comunication/comunication-movie.service';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -35,6 +37,7 @@ import { ComunicationMovieService } from '../service-comunication/comunication-m
     NavMenuComponent,
     SearchComponent,
     MovieDetailComponent,
+    HomeComponent,
   ],
   imports: [
     HttpClientModule,

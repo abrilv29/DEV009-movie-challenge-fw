@@ -67,35 +67,6 @@ export class MovieFilterComponent implements OnInit {
     return Math.ceil(this.totalPagesGenre/this.pageSizeGenre);
   }
 
-
-
-
-
- /* getMoviePagination() {
-    return this.movies/* .slice(indexStart, indexEnd) ;
-  }
-
-  nextPageGenre() {
-    this.setPage(this.currentPageGenre + 1);
-  }
-
-  prevPageGenre() {
-    this.setPage(this.currentPageGenre - 1);
-  }
-
-  private setPage(page: number) {
-    if (page >= 1 && page <= this.totalPagesGenre) {
-      this.currentPageGenre = page;
-    }
-  }
-
-  get totalGenrePages(): number {
-    if (this.movies.length === 0 || this.pageSizeGenre === 0) {
-      return 0;
-    }
-    return Math.ceil(this.movies.length / this.pageSizeGenre);
-  }*/
-
   // SORT THE MOVIES
 
   onSortMovieGenres():void{

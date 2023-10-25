@@ -1,0 +1,81 @@
+.container-background {
+    position: relative;
+}
+
+.container-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 120px 100px 250px #242323, inset -120px -100px 250px #242323;
+}
+
+.container-form {
+    position: absolute;
+    top: 50%;
+    /* Ajusta la posición vertical hacia abajo */
+    left: 30%;
+    /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%);
+    /* Centra el contenedor en el centro */
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    width: 35%;
+    height: 28%;
+    border-radius: 20px;
+}
+
+.container-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+
+    .movie-title {
+        color: #fc4e67;
+        font-size: 42px;
+        padding: 5px;
+    }
+    .subtitle-movie {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+
+    }
+}
+
+.container-header .separator-movie {
+    border-color: #fc4e67;
+    height: 2px;
+    border-style: solid;
+    animation: separator-width 1s ease-out forwards;
+  
+    @keyframes separator-width {
+      0% {
+        width: 0;
+      }
+  
+      100% {
+        width: 80%;
+      }
+    }
+  }
+  
+
+.custom-button {
+    position: absolute;
+    top: 70%;
+    /* Ajusta la posición vertical */
+    left: 50%;
+    /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%);
+    /* Centra el botón en el contenedor */
+    width: 100px;
+    height: 40px;
+    border: none;
+}
