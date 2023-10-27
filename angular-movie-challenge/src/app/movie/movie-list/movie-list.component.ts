@@ -31,7 +31,6 @@ export class MovieListComponent implements OnInit {
   // CATALOGO DISCOVER - MOVIES
 
   private getDiscoveryMovie(page: number) {
-
     this.moviesService.getDiscoveryMovie(page).subscribe((data: MovieResult) => {
       console.log(data);
       this.movies = data.results;

@@ -85,4 +85,63 @@ it('should update currentPage and pageSize on page change', () => {
   expect(component.pageSize).toEqual(pageEvent.pageSize);
 });
 
+it('should return the correct pagination value', () => {
+  component.movies = [
+    {
+      adult: false,
+      backdrop_path: 'path/to/backdrop.jpg',
+      genre_ids: [1, 2, 3],
+      id: 1,
+      original_language: OriginalLanguage.En, 
+      original_title: 'Original Title',
+      overview: 'Movie overview',
+      popularity: 7.5,
+      poster_path: 'path/to/poster.jpg',
+      release_date: new Date('2023-10-21'),
+      title: 'Movie Title',
+      video: false,
+      vote_average: 8.0,
+      vote_count: 100,
+    },
+    // Agrega más películas de ejemplo si es necesario...
+  ];
+  
+  component.pageSize = 5; // Configura el pageSize según lo necesario para esta prueba
+  component.totalPages = 10; // Configura el totalPages según lo necesario para esta prueba
+
+  const result = component.getMoviePagination();
+
+  expect(result).toBe(2);
+});
+
+
+it('should call loadMovie with the selected sort option', () => {
+  const sortOption = 'popularity.desc'; // Establece un valor de ejemplo para sortOption
+
+  spyOn(component, 'loadMovie'); // Espía el método loadMovie
+
+  component.selectSortOption = sortOption;
+  component.onSortMovie();
+
+  expect(component.loadMovie).toHaveBeenCalledWith(sortOption);
+});
+
+it('should fetch movies with the specified sort option', () => {
+  const sortOption = 'popularity.desc'; // Establece un valor de ejemplo para sortOption
+  const mockMovieData = {
+    results: [], 
+    page: 2,
+    total_results: 20,
+    total_pages: 3, 
+  };
+
+  spyOn(movieService, 'getMovieSort').and.returnValue(of(mockMovieData));
+
+  component.loadMovie(sortOption);
+
+  expect(movieService.getMovieSort).toHaveBeenCalledWith(sortOption);
+  expect(component.movies).toEqual(mockMovieData.results);
+});
+
+
 });
