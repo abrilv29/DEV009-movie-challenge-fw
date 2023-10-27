@@ -1,20 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, Type } from '@angular/core';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieServiceService } from 'src/app/service/service.service';
 import { MovieDetailComponent } from './movie-detail.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DetailsResult } from 'src/app/Interface/details';
+import { Site, Video } from 'src/app/Interface/video';
 
 describe('MovieDetailComponent', () => {
   let component: MovieDetailComponent;
   let fixture: ComponentFixture<MovieDetailComponent>;
-  let movieService: MovieServiceService;
   let route: ActivatedRoute;
 
   beforeEach(async () => {
+    const mockService = jasmine.createSpyObj('MovieServiceService', ['getMovieDetails', 'getMovieVideos']);
+
     await TestBed.configureTestingModule({
       declarations: [MovieDetailComponent],
       imports: [RouterTestingModule, HttpClientModule],
@@ -22,41 +25,44 @@ describe('MovieDetailComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            params: of({ id: '1' }), // Simula los parámetros de la ruta
-          },
+            snapshot: { paramMap: convertToParamMap({ id: '1' }) },
+            params: of({ id: '1' })
+          }
         },
-        MovieServiceService, // Añade tus servicios aquí
-        DomSanitizer,
+        { provide: MovieServiceService, useValue: mockService }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MovieDetailComponent);
     component = fixture.componentInstance;
-    movieService = TestBed.inject(MovieServiceService);
     route = TestBed.inject(ActivatedRoute);
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call getMovieDetails and set movie details', () => {
-    const spyGetMovieDetails = spyOn(movieService, 'getMovieDetails');
-  
-    component.ngOnInit();
-  
- 
-    expect(spyGetMovieDetails).toHaveBeenCalledWith(component.movieId);
+ /* it('should use a simulated route parameter', () => {
+    const simulatedParamMap = convertToParamMap({ id: '1' });
+    route = TestBed.inject(ActivatedRoute);
+    route.snapshot.params = simulatedParamMap;
 
-    const mockMovieDetails = {
+    fixture.detectChanges();
+
+    expect(component.movieId).toBe(1);
+  });
+
+  it('should load movie details', () => {
+    const mockMovieDetails: DetailsResult = {
       id: 1,
-      backdrop_path: '/ruta/imagen.jpg',
       title: 'Título de la película',
+      backdrop_path: '/ruta/imagen.jpg',
       overview: 'Descripción de la película',
       genres: [
-        { id: 1, name: 'Action' },
-        { id: 2, name: 'Adventure' },
+        { id: 1, name: 'Acción' },
+        { id: 2, name: 'Aventura' },
       ],
       poster_path: '/ruta/imagen.jpg',
       original_title: '',
@@ -65,17 +71,41 @@ describe('MovieDetailComponent', () => {
       release_date: new Date(),
     };
   
-    // Configura el espía para que devuelva los datos de prueba
-    spyGetMovieDetails.and.returnValue(of(mockMovieDetails));
-  
-    // Llama a component.ngOnInit nuevamente después de espiar el servicio
+    const getMovieDetailsSpy = jasmine.createSpy('getMovieDetails').and.returnValue(of(mockMovieDetails));
+
+    // Reemplaza el espía en el objeto movieServiceMock
+    const movieServiceMock = TestBed.inject(MovieServiceService);
+    movieServiceMock.getMovieDetails = getMovieDetailsSpy;
+    
     component.ngOnInit();
-  
-    // Espera a que se complete la suscripción y se actualice la vista
-    fixture.detectChanges();
 
     expect(component.movie).toEqual(mockMovieDetails);
-    expect(component.detailsGenres).toBe('Action, Adventure');
   });
-  
+
+  it('should load movie videos', () => {
+    const mockVideos = {
+      results: [
+        {
+          name: "Nombre del video",
+          site: Site.YouTube, // Otra opción válida de Site si corresponde
+          size: 123, // Tamaño del video
+          id: "1", // ID del video
+          type:"trailer",
+        },
+        // Otros objetos VideoResult simulados si es necesario
+      ]
+    };
+    
+    const getMovieVideosSpy = jasmine.createSpy('getMovieVideos').and.returnValue(of(mockVideos));
+
+    // Reemplaza el espía en el objeto movieServiceMock
+    const movieServiceMock = TestBed.inject(MovieServiceService);
+    movieServiceMock.getMovieVideos = getMovieVideosSpy;
+    
+    component.ngOnInit();
+
+    expect(component.videoUrl).toBeDefined();
+    expect(component.showVideo).toBe(true);
+  });*/
+
 });

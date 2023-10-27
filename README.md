@@ -83,10 +83,11 @@ el filtro y ordenamiento.
 * Google Font and Material Icon
 * Postmant
 * Sass (scss)
-* JavaScript
+* Typescript
 
 
-### Planifica la implementación de la primera historia de usuaria
+### Planifica y organizacion con gitProyect
+
 
 Toma la primera historia de usuaria y
 divídela en tareas más pequeñas. Identifica

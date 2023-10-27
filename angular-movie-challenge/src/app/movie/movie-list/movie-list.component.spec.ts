@@ -13,6 +13,31 @@ describe('MovieListComponent', () => {
   let fixture: ComponentFixture<MovieListComponent>;
   let movieService: MovieServiceService;
 
+  const mockMovieData = {
+    page: 1,
+    results: [
+      {
+        adult: false,
+        backdrop_path: 'path/to/backdrop.jpg',
+        genre_ids: [1, 2, 3],
+        id: 1,
+        original_language: OriginalLanguage.En, 
+        original_title: 'Original Title',
+        overview: 'Movie overview',
+        popularity: 7.5,
+        poster_path: 'path/to/poster.jpg',
+        release_date: new Date('2023-10-21'),
+        title: 'Movie Title',
+        video: false,
+        vote_average: 8.0,
+        vote_count: 100,
+      },
+    ],
+    total_pages: 5,
+    total_results: 25,
+
+  };
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [MovieListComponent],
@@ -31,47 +56,25 @@ describe('MovieListComponent', () => {
   });
 
   it('should initialize the component and fetch movies', () => {
-    const mockMovieData = {
-      page: 1,
-      results: [
-        {
-          adult: false,
-          backdrop_path: 'path/to/backdrop.jpg',
-          genre_ids: [1, 2, 3],
-          id: 1,
-          original_language: OriginalLanguage.En, 
-          original_title: 'Original Title',
-          overview: 'Movie overview',
-          popularity: 7.5,
-          poster_path: 'path/to/poster.jpg',
-          release_date: new Date('2023-10-21'),
-          title: 'Movie Title',
-          video: false,
-          vote_average: 8.0,
-          vote_count: 100,
-        },
-        // Añade más películas según sea necesario
-      ],
-      total_pages: 5,
-      total_results: 25,
-  
-    };
+
     spyOn(movieService, 'getDiscoveryMovie').and.returnValue(of(mockMovieData));
     
     fixture.detectChanges();
     
+    // Verifica si se ha llamado al método getDiscoveryMovie y si los datos de películas se han asignado correctamente
+    expect(movieService.getDiscoveryMovie).toHaveBeenCalled();
     expect(component.movies).toEqual(mockMovieData.results);
-    expect(component.currentPage).toEqual(mockMovieData.page);
-    expect(component.totalPages).toEqual(mockMovieData.total_results);
+    expect(component.currentPage).toBe(mockMovieData.page);
+    expect(component.totalPages).toBe(mockMovieData.total_results);
   });
 
 it('should update currentPage and pageSize on page change', () => {
   const pageEvent = { pageIndex: 2, pageSize: 10 } as PageEvent;
   const mockMovieData = {
-    results: [], // Agrega datos de películas de ejemplo si es necesario
+    results: [], 
     page: 2,
     total_results: 20,
-    total_pages: 3, // Añade la propiedad total_pages
+    total_pages: 3, 
   };
 
   spyOn(movieService, 'getDiscoveryMovie').and.returnValue(of(mockMovieData));
@@ -80,7 +83,6 @@ it('should update currentPage and pageSize on page change', () => {
   
   expect(component.currentPage).toEqual(mockMovieData.page);
   expect(component.pageSize).toEqual(pageEvent.pageSize);
-  // Aquí puedes agregar más expectativas si es necesario
 });
 
 });
