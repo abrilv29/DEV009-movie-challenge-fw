@@ -46,7 +46,7 @@ export class MovieServiceService {
 
    getSearchMovie(texto: string):Observable<MovieResult>{
     const encodedQuery = encodeURIComponent(texto);
-    return this.http.get<MovieResult>(`${this.apiUrl}//search/movie?api_key=${this.apiKey}&query=${encodedQuery}`);
+    return this.http.get<MovieResult>(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${encodedQuery}`);
    }
 
    // DETAILS MOVIES 

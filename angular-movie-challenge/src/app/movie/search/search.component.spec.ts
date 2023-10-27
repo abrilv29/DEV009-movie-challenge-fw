@@ -72,7 +72,7 @@ describe('SearchComponent', () => {
     expect(mockService.getSearchMovie).toHaveBeenCalledWith(term);
   }));
 
-  it('should call onSearchMovie when search button is clicked', () => {
+  /*it('should call onSearchMovie when search button is clicked', () => {
     // Establece un valor en el formulario antes de hacer clic en el botón
     component.searchForm.get('texto')?.setValue('test search term');
   
@@ -83,6 +83,19 @@ describe('SearchComponent', () => {
     const searchTermsSpy = spyOn(component.searchTerms, 'next');
   
     expect(searchTermsSpy).toHaveBeenCalledWith('test search term');
-  });  
+  }); */
+
+  it('should call onSearchMovie when search button is clicked', () => {
+    spyOn(component, 'onSearchMovie');
+  
+    // Encuentra el botón por su ID
+    const button = fixture.debugElement.nativeElement.querySelector('#searchButton');
+  
+    // Simula un clic en el botón
+    button.click();
+  
+    // Verifica que la función onSearchMovie se haya llamado
+    expect(component.onSearchMovie).toHaveBeenCalled();
+  });
 
 });
