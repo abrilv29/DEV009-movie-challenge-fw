@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   searchForm: FormGroup;
   searchResults: Movie[] = [];
 
-  private searchTerms = new Subject<string>();
+   public searchTerms = new Subject<string>();
 
   constructor(
     private moviesService: MovieServiceService,
@@ -49,4 +49,5 @@ export class SearchComponent implements OnInit {
       this.searchTerms.next(texto);
     }
   }
+
 }
