@@ -8,6 +8,7 @@ import { MovieServiceService } from 'src/app/service/service.service';
 import { ComunicationMovieService } from 'src/app/service-comunication/comunication-movie.service';
 import { of } from 'rxjs';
 
+
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
@@ -72,30 +73,35 @@ describe('SearchComponent', () => {
     expect(mockService.getSearchMovie).toHaveBeenCalledWith(term);
   }));
 
-  /*it('should call onSearchMovie when search button is clicked', () => {
+  it('should call onSearchMovie when search button is clicked', () => {
     // Establece un valor en el formulario antes de hacer clic en el botón
     component.searchForm.get('texto')?.setValue('test search term');
-  
+
     // Llama al método
     component.onSearchMovie();
-  
+
     // Ahora espera que el spy haya sido llamado con el valor correcto
     const searchTermsSpy = spyOn(component.searchTerms, 'next');
-  
-    expect(searchTermsSpy).toHaveBeenCalledWith('test search term');
-  }); */
+    // Simula el clic en el botón de búsqueda
+    const searchButton = fixture.debugElement.nativeElement.querySelector('#searchButton');
+    searchButton.click();
 
-  it('should call onSearchMovie when search button is clicked', () => {
-    spyOn(component, 'onSearchMovie');
-  
-    // Encuentra el botón por su ID
-    const button = fixture.debugElement.nativeElement.querySelector('#searchButton');
-  
-    // Simula un clic en el botón
-    button.click();
-  
-    // Verifica que la función onSearchMovie se haya llamado
-    expect(component.onSearchMovie).toHaveBeenCalled();
+
+    expect(searchTermsSpy).toHaveBeenCalledWith('test search term');
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });

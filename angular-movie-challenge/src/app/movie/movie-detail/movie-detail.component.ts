@@ -24,7 +24,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieServiceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
@@ -48,9 +48,6 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
             }
           }
         },
-        error: (error: any) => {
-          console.error('Error en la solicitud HTTP:', error);
-        }
       });
 
     });// 

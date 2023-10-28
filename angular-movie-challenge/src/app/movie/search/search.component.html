@@ -12,15 +12,16 @@
 </div>-->
 
 <div class="container-fluid">
-  <form class="form-search" role="search" (ngSubmit)="onSearchMovie()" [formGroup]="searchForm">
+  <form class="form-search" role="search" [formGroup]="searchForm">
     <div class="custom-form-field">
       <input class="input-content" type="text" formControlName="texto" placeholder="Search movie" style="color:white;">
-      <button class="btn-search" type="submit" id="searchButton">
+      <button class="btn-search" type="button" id="searchButton" (click)="onSearchMovie()">
         <span class="material-icons">search</span>
       </button>
     </div>
   </form>
 </div>
+
 
   <!-- Mostrar los resultados debajo del formulario -->
   <div *ngIf="searchResults.length > 0">
