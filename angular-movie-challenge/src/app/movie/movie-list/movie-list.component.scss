@@ -1,8 +1,21 @@
  /* movie-list.component.scss */
  .principal-content {
    display: grid;
-   grid-template-columns: 50% 50%; 
+   grid-template-columns: repeat(
+    auto-fit,
+    minmax(1,1fr)
+    );
+   gap: 20px;
  }
+
+ /*.container-card{
+   display: grid;
+   grid-template-columns: repeat(
+    auto-fit,
+    minmax(5,1fr)
+    );
+   gap: 20px;
+ }*/
 
  .container-list {
    margin: 20px;
@@ -46,8 +59,6 @@
    }
  }
 
- 
-
  .custom-select {
    border: 1px solid #f5f5f5;
    border-radius: 5px;
@@ -61,12 +72,13 @@
    }
  }
 
- /*.container-card{
+/*.container-card{
    display: grid;
-   grid-template-columns: repeat(5,1fr);
+   grid-template-columns: repeat(
+    auto-fit,
+    minmax(5,1fr)
+    );
    gap: 20px;
-   align-items: center;
-   justify-items: center;
  }*/
 
  .container-card {
@@ -177,14 +189,54 @@
    }
  }
 
- mat-paginator {
-   grid-column: span 5;
-   width: 100%;
-   font-weight: 400;
 
- }
 
  mat-mdc-select-value {
    color: #fc4e67;
  }
+
+ ::ng-deep .mat-mdc-paginator-outer-container {
+  background-color: #322d64bd;
+  color: #fff;
+ 
+}
+
+::ng-deep .mat-mdc-paginator-range-actions{
+  color: #f5f5f5;
+}
+
+
+::ng-deep .mat-mdc-select-value-text {
+  color:#f5f5f5;
+
+}
+::ng-deep .mat-mdc-select-arrow svg {
+  color: #f5f5f5;
+}
+::ng-deep .mdc-icon-button {
+
+}
+
+mat-paginator {
+    color: #f5f5f5;
+    grid-column: span 5;
+    width: 100%;
+    font-weight: 400;
+
+}
+
+@media screen and (max-width: 390px) {
+  .card[_ngcontent-ng-c144783572]img[_ngcontent-ng-c144783572]  {
+    width: 100%;
+    height: 100%;
+  }
+  .card[_ngcontent-ng-c144783572]{
+    width: 140px;
+    height: 210px; 
+  }
+
+  
+}
+
+ 
 
