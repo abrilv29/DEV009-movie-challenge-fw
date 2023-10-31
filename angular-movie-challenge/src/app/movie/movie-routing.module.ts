@@ -6,7 +6,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieFilterComponent } from './movie-filter/movie-filter.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { SearchComponent } from './search/search.component';
-import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
   {
