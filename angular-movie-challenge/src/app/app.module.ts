@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 import { MovieRoutingModule } from './movie/movie-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './movie/home/home.component';
 import { Router } from '@angular/router';
 
 

@@ -104,4 +104,4 @@ LINK del prototipo de alta fidelidad [FIGMA](https://www.figma.com/proto/PVv9DVk
 
 Cabe mencionar que el proyecto de moviechallenge apesar de que es tentativamente corto fue una excelente practica para conocer como funciona el modelo-vista-controlador de un proyecto intiuitivo y perspicaz, que coadyuba a implementar el conocimiento adquirido del uso de javascript y logras incorporar el esfuerzo y la dedicación a este proyecto como algo satisfactorio y asu vez seguir conciendo más formas de como solucionar distintas necesidades.
 
-#### DEV-009 ABRIL VARGAS DESAROLLADORA FRONT-END.
+#### DEV-009 | ABRIL VARGAS | DESAROLLADORA FRONT-END.
