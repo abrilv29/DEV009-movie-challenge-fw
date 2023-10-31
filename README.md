@@ -72,44 +72,36 @@ el filtro y ordenamiento.
 
 ---
 
-## 7. Prototipo de alta fidelidad 
+## 4. Prototipo de baja fidelidad
+
+![list](docs/movie-list.png)
+
+![details](docs/movie-detail.png)
+
+
+## 5. Prototipo de alta fidelidad 
 
 ![Alt text](angular-movie-challenge/src/assets/PA-MOVIE.gif)
 
-## 8. Uso de tecnolgías para este proyecto
-
-* Angular v.16.2.0
-* Angular Material
-* Google Font and Material Icon
-* Postmant
-* Sass (scss)
-* Typescript
+LINK del prototipo de alta fidelidad [FIGMA](https://www.figma.com/proto/PVv9DVkXo8SbZZSzjpGYtO/PA-MOVIE?type=design&node-id=45-4&t=E29v7rVtNewAzUHT-1&scaling=min-zoom&page-id=38%3A2&mode=design)
 
 
-### Planifica y organizacion con gitProyect
 
+## 6. Uso de tecnolgías para este proyecto
 
-Toma la primera historia de usuaria y
-divídela en tareas más pequeñas. Identifica
-el orden y prioridad de cada tarea.
-Documenta tu planificacion en Trello o Github Project.
+* Angular v.16.2.0: Decidí implementar el uso de este framework por que me brinda una organización de la estructura de los archivos que se pueden ir implementado en el proyecto además de esto coadyuba la eficacia y solides al momento de escribir código.
+* Angular Material: Dentro del contexto de angular permite implementar el uso de UI para una maquetación eficiente y sobretodo ayuda en la optimización de tiempos al momento de implementar cada componente.
+* Google Font and Material Icon: También ofrece una catálogo amplio de iconos y fuentes que son procias de google y se pueden implementar de una manera optima.
+* Postmant: Esta herramienta fue bastante util al momento de hacer el endpoint de la data de la api themoviedb, por que permite hacer los requests y observar que datos son los que seba consultar y utilzar.
+* Typescript: De este modo con el manejo de datos pude comprender que tipo de dato utilizar al momento de crear una interface que alamacenar diversos parametros que utilizaria en el proyecto y así darle un uso correcto al tipado de variables.
+* Sass (scss): Por ultimo decidi incorporar el manejo de sass en la extención(scss) y lograr un diseño intuitivo e inovador.
+* Jasmin y Karma: Como todo gran proyecto debe exitir una forma de respaldar lo que se viene codeando de tal manera que garantize la solidez y seguridad de que el proyecto no colapsara y para esto implemente el uso de (test unitarios), usando propiamente las herramientas que proporciona el framework como tal.
+![Karma-interface](angular-movie-challenge/src/assets/test.png)
 
-### Implementa tu primer componente
+![consola-jasmin](angular-movie-challenge/src/assets/consola.png)
 
-Toma la primera vista de prototipo de alta e implementala.
-Te sugerimos seguir los siguientes
-pasos independiente del framework  que uses:
+## 7. Conclusión 
 
-- Paso 1: Separa la UI en una jerarquía de componentes
-- Paso 2: Construye una versión estática de la UI sin añadir ninguna
-interactividad aún
-- Paso 3: Encuentra la representación mínima pero completa del estado de la UI.
-Piensa en el estado como el conjunto mínimo de datos cambiantes que
-la aplicación necesita recordar.
-- Paso 4: Después de identificar los datos mínimos de estado de tu aplicación,
-debes identificar qué componente es responsable de cambiar este estado,
-o posee el estado.
-- Paso 5: Identifica el flujo de comunicación entre cada componente:
-padre a hijo o hijo a padre. Implementa la estrategia identificada tal como
-te sugiere el framework.
+Cabe mencionar que el proyecto de moviechallenge apesar de que es tentativamente corto fue una excelente practica para conocer como funciona el modelo-vista-controlador de un proyecto intiuitivo y perspicaz, que coadyuba a implementar el conocimiento adquirido del uso de javascript y logras incorporar el esfuerzo y la dedicación a este proyecto como algo satisfactorio y asu vez seguir conciendo más formas de como solucionar distintas necesidades.
 
+#### DEV-009 ABRIL VARGAS DESAROLLADORA FRONT-END.
