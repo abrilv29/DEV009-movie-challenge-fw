@@ -205,6 +205,7 @@
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
+  display: flex;
 }
 
 .modal-close {
@@ -229,6 +230,49 @@
   .backdrop-container[_ngcontent-ng-c999466763]{
     background-size: contain;
   }
+
+  .modal-content {
+    width: 315px;
+    padding: 0;
+    left: 0;
+    right: 0;
+  }
+  .modal-content iframe{
+    width: 150px;
+    height: 250px;
+
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .modal-content iframe{
+    width: 280px;
+    height: 250px;
+    margin-left: 25px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .content-cards{
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .content-cards[_ngcontent-ng-c999466763] img[_ngcontent-ng-c999466763]{
+    width: 50%;
+  }
+  .backdrop-container[_ngcontent-ng-c999466763]{
+    background-size: contain;
+  }
+  .modal-content iframe{
+    width: 350px;
+    height: 250px;
+
+  }
+
 }
 
 

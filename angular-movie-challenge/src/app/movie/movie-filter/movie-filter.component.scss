@@ -14,7 +14,7 @@
 }
 
 .genres {
-  color: #f5f5f5;
+  color: var(--color-content);
   font-size: 18px;
   font-weight: 500;
   line-height: 10px;
@@ -22,7 +22,7 @@
 
 .separator {
   width: 35%;
-  border-color: #fc4e67;
+  border-color: var(--borde-content);
   height: 2px;
   border-style: solid;
   animation: separator-width 1s ease-out forwards;
@@ -44,20 +44,20 @@
 
   .sort-select-filter {
     margin: 10px;
-    color: #f5f5f5;
-    font-size: 14px;
+    color: var(--color-content);
+    font-size:var(--sub-text);
   }
 }
 
 .custom-select-filter {
-  border: 1px solid #f5f5f5;
+  border: 1px solid var(--color-content);
   border-radius: 5px;
   background-color: transparent;
-  color: #f5f5f5;
+  color: var(--color-content);
   padding: 5px;
 
   option {
-    background-color: #333;
+    background-color: var(--options);
     /* Cambia el color de fondo de las opciones */
   }
 }
@@ -74,17 +74,16 @@
 }
 
 button {
-
   width: 120px;
   height: 40px;
   border-radius: 8px;
   background: transparent;
-  border: 1px solid #fc4e67;
+  border: 1px solid var(--borde-content);
   margin: 5px;
-  color: #f5f5f5;
+  color: var(--color-content);
 
   &:hover {
-    background-color: #fc4e67;
+    background-color: var(--borde-content);
   }
 
 }
@@ -105,7 +104,7 @@ button {
   width: 280px;
   height: 480px;
   aspect-ratio: 16/9;
-  background-color: #8c60be;
+  background-color: var(--color-container-card);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -118,7 +117,7 @@ button {
 
     width: 280px;
     height: 480px;
-    fill: #333;
+    fill: var(--options);
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
@@ -157,8 +156,8 @@ button {
 
 mat-card-title {
   margin: 0;
-  font-size: 20px;
-  color: #f5f5f5;
+  font-size: var(--title-content);
+  color: var(--color-content);
   font-weight: 700;
 }
 
@@ -166,31 +165,32 @@ mat-card-subtitle {
   margin: 5px;
   font-size: 16px;
   font-weight: 500;
-  color: #7208b9;
+  color: var(--color-button);
   line-height: 1.4;
 }
 
 .card__button {
   padding: 15px;
   border-radius: 8px;
-  background: #7208b9;
+  background: var(--color-button);
   border: none;
   width: 50%;
 
   &:hover {
-    background: #fc4e67;
+    background: var(--borde-content);
   }
 
   a {
 
     text-decoration: none;
-    color: #f5f5f5;
+    color: var(--color-content);
   }
 }
 
+
 .vote-card {
-  color: #f5f5f5;
-  font-size: 14px;
+  color: var(--color-content);
+  font-size: var(--sub-text);
   display: inline;
   font-weight: 600;
 
@@ -207,23 +207,21 @@ mat-card-subtitle {
 }
 
 ::ng-deep .mat-mdc-paginator-range-actions{
-  color: #f5f5f5;
+  color: var(--color-content);
 }
 
 
 ::ng-deep .mat-mdc-select-value-text {
-  color:#f5f5f5;
+  color: var(--color-content);
 
 }
 ::ng-deep .mat-mdc-select-arrow svg {
-  color: #f5f5f5;
+  color: var(--color-content);
 }
-::ng-deep .mdc-icon-button {
 
-}
 
 mat-paginator {
-    color: #f5f5f5;
+    color: var(--color-content);
     grid-column: span 5;
     width: 100%;
     font-weight: 400;

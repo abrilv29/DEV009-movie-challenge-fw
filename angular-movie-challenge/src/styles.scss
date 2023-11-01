@@ -12,6 +12,29 @@
     background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); */
 
+     
+:root{
+
+/* COLOR FONTS */
+
+--color-content: #f5f5f5;
+--color-container-card:#8c60be;
+--color-button: #7208b9;
+
+/* FONS SIZE */
+
+--title-content:20px;
+--sub-text-content:16px;
+--title-text:18px;
+--sub-text:14px;
+
+/* BORDER COLORS */
+
+--borde-content:#fc4e67;
+--options:#333;
+}
+
+
 
 *,
 *:before,
