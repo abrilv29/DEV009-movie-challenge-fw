@@ -105,8 +105,8 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/angular-movie-challenge",
-            "netlifyToken": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDC5vtQam5ShgMn1iSvpAknyAsVLOt6l8nRRNiDWvEKXs/n+zzJJLGnVati43lsomkrdrNsYMS0BS1/dhJzvu/+6y3LCZ7k48Vxl1VigfzIF2rF4nv57MN+y9+Uu40VGYmgHt7jBPVV2bVGctXiXoh5X9lTMXRqyZfMVljFiQjWZKFTtNHV46Wzu3rNoIKra2LVL+qYYnJ1LtmrZwrPGMiGNFehjUXhQuAAw4cCQxqnMz+oXFHRDLNlMvi8prPC7rPRm2Y0pcsebraGu6OUTQSeJ/KmRU+FDXTxFGtMtLqpTSY4M1GfmQ8tF8ZchTL4P0tKD1EL2cxUwfXPeAXI+A+X7MFIeOrTmge5aExFra8OhRlSjY8P8SuBi/ByRDld2RFlPphkcrsTVgVBEPMXjDT7dkxco5G+B2SZV3hYl9mYGyhtq2EZLvn2evqPMOBiZBIcx2VSfpoyjAeW0mnB2uJukv6n88S6yoBQpqUOl2Q7AvaFidZ3TGW0dZXJnaFa7yCTbx2nzJcpp6Ufvfnt/UZsXCmEcHgQdnVwIXsAOkDOe06eIPZOh5Ghw2OfcvzTpM6h6nSnEnVs9q1mw8p89z/L/K4ZIKb/qUQJHQPVY+Ljop5GaPJB+MKU0yPmU+SbOhzLNDGVE8cD+yEtWKFW04PHRsptB6665yte9a+3d9c2bQ==",
-            "siteId": "619052a5-5d4f-4f23-b2cc-765fb5417dc3"
+            "netlifyToken": "",
+            "siteId": ""
           }
         }
       }
