@@ -105,8 +105,8 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/angular-movie-challenge",
-            "netlifyToken": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCMd4vqfD07im9Ir3bJaM5QDpL8o8214+CVblvpsllxxwUM7XQFk12kpFEIq8Z6A1c3HhNMNeW8n1fS3+umMZ0lHzhOpn5nsyHGZzpT2p36rThusHTOxoWHWm0wuqDwCRC9FX42hFbo2aGZToajvCztlf2f/xE34tUHmiMSWszNSmIXAxgdapyYekXTw7IyWpgmctScLe669wz+x7zJfkgPBi1BgSQni4mOlfrxqtRPsdlIOyknV0MuPB5C1S79xd1A0/RxoEDCivteoYabiOpKBVtJRG6yAmqIjVA6GaFQ19w+t+/JSMO7lcOhX82s7wIXALqNcMhKn3Ym8/1dHUKcb+LxOn4ZV+ToFWpa8U8FukP35U60nk1GQ8apIcGZw8HwMvf5jtAnEfpXXmiaqYPNBQlHgmyoCaxTulGvtNsLZ7vhWC7Jg2PCsO/0L/y1oKhxt0iyDweoggoy5fLLYu0f/f+DU0zm/PFh6lC4VhDlMDCJnDYFVQPlunj9T0apyOZ7UAjpLIw2apkOpm4QmmRYjK8MLjPVB58hskeA0UeCL9mUpqM4u3nbgHWhrb0Ww/jM9mp7k3tOhSyNdD278jcpAsYkVZ/8T3WW5V8F7ClRN2xuIB7HqNnDWqAOAuMbTotTIFcPbhflaoUQkvLMr+tL1KOFJRoj0noJ9Y6PIShHOQ==",
-            "siteId": "55493949-516c-4291-b072-1d23f40e0d8d"
+            "netlifyToken": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDC5vtQam5ShgMn1iSvpAknyAsVLOt6l8nRRNiDWvEKXs/n+zzJJLGnVati43lsomkrdrNsYMS0BS1/dhJzvu/+6y3LCZ7k48Vxl1VigfzIF2rF4nv57MN+y9+Uu40VGYmgHt7jBPVV2bVGctXiXoh5X9lTMXRqyZfMVljFiQjWZKFTtNHV46Wzu3rNoIKra2LVL+qYYnJ1LtmrZwrPGMiGNFehjUXhQuAAw4cCQxqnMz+oXFHRDLNlMvi8prPC7rPRm2Y0pcsebraGu6OUTQSeJ/KmRU+FDXTxFGtMtLqpTSY4M1GfmQ8tF8ZchTL4P0tKD1EL2cxUwfXPeAXI+A+X7MFIeOrTmge5aExFra8OhRlSjY8P8SuBi/ByRDld2RFlPphkcrsTVgVBEPMXjDT7dkxco5G+B2SZV3hYl9mYGyhtq2EZLvn2evqPMOBiZBIcx2VSfpoyjAeW0mnB2uJukv6n88S6yoBQpqUOl2Q7AvaFidZ3TGW0dZXJnaFa7yCTbx2nzJcpp6Ufvfnt/UZsXCmEcHgQdnVwIXsAOkDOe06eIPZOh5Ghw2OfcvzTpM6h6nSnEnVs9q1mw8p89z/L/K4ZIKb/qUQJHQPVY+Ljop5GaPJB+MKU0yPmU+SbOhzLNDGVE8cD+yEtWKFW04PHRsptB6665yte9a+3d9c2bQ==",
+            "siteId": "619052a5-5d4f-4f23-b2cc-765fb5417dc3"
           }
         }
       }
